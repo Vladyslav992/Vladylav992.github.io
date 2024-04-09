@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     FeaturesModule,
     RouterModule,
     FormsModule,
+    SharedModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

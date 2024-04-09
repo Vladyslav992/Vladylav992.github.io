@@ -4,6 +4,7 @@ import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
 import { ContactsModule } from './contacts/contacts.module';
 import { AboutModule } from './about/about.module';
+import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [],
@@ -12,6 +13,7 @@ import { AboutModule } from './about/about.module';
     HomeModule,
     ContactsModule,
     AboutModule,
+    ShopModule,
     RouterModule,
   ],
 })

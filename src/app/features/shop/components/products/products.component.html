@@ -1,0 +1,39 @@
+<div class="products">
+  <div class="container">
+    <div class="box">
+      <div class="products__container">
+        <ng-container *ngFor="let item of productsList">
+          <div class="products__card" [class]="getDiscountClass(item.discount)">
+            <img
+              class="products__img"
+              [src]="item.imgUrl"
+              [alt]="item.name"
+              loading="lazy"
+            />
+            <div class="products__discount">
+              {{ item.discount | percent }}
+            </div>
+
+            <div class="products__text">
+              <div class="products__name">{{ item.name }}</div>
+              <p class="products__description">
+                {{ item.description | limitCharacters : "35" }}
+              </p>
+
+              <div class="products__price">
+                <p class="products__price_current">
+                  {{
+                    item.price - item.price * item.discount | currency : "EUR"
+                  }}
+                </p>
+                <p class="products__price_initial">
+                  {{ item.price | currency : "EUR" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

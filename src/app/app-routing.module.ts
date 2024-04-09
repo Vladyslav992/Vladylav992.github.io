@@ -8,6 +8,7 @@ import { AboutComponent } from './features/about/components/about/about.componen
 import { NewsletterComponent } from './features/home/components/newsletter/newsletter.component';
 import { BannerComponent } from './features/home/components/banner/banner.component';
 import { SuggestionComponent } from './features/home/components/suggestion/suggestion.component';
+import { ShopComponent } from './features/shop/components/shop/shop.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'Shop', component: ShopComponent },
   { path: 'Contacts', component: ContactsComponent },
 ];
 
