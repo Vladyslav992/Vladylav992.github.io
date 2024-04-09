@@ -1,0 +1,89 @@
+@import '../../../../../assets/styles/index';
+
+.suggestion {
+    padding: 40px;
+
+    .box {
+        gap: 20px;
+    }
+}
+
+.suggestion {
+
+    .box {
+        margin-bottom: 40px;
+    }
+
+    &__heading {
+        font-weight: 400;
+        font-size: 3rem;
+        padding-bottom: 20px;
+    }
+
+    &__card {
+        height: 48vh;
+        border-radius: 10px;
+        border: 1px dashed hsl(0, 0%, 0%);
+        flex: 0 1 33%;
+        cursor: pointer;
+        transition: all 0.5s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &:hover {
+            box-shadow: 3px 3px 5px $clr-secondary;
+        }
+    }
+
+    &__img {
+        border-radius: 10px;
+        margin-bottom: 10px;
+        max-height: 60vh;
+        margin: 0 auto;
+    }
+
+    &__text {
+        display: flex;
+        padding: 5px;
+    }
+
+    &__name {
+        font-size: 0.875rem;
+    }
+
+    &__price {
+        margin-left: auto;
+        font-weight: 700;
+    }
+
+    &__button {
+        @include button(250px, 30px);
+        margin: 0 auto;
+    }
+}
+
+@include tablet {
+    .suggestion {
+        &__heading {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@include mobile {
+    .suggestion {
+
+        .box {
+            flex-direction: column;
+        }
+
+        &__card {
+            width: 50vw;
+        }
+
+        &__img {
+            max-width: 50vw;
+        }
+    }
+}

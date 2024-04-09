@@ -1,0 +1,78 @@
+@import '../../../../../assets/styles/index';
+
+.container {
+    padding: 80px 0;
+}
+
+.timeline {
+    background-color: #fff;
+    margin: 0 auto;
+    min-height: 70vh;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        background-color: $clr-secondary;
+    }
+
+    &__container {
+        position: relative;
+        margin-bottom: 60px;
+    }
+
+    &__date {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translate(-45%);
+        z-index: 1;
+        display: inline-block;
+        background-color: #ffffff;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%);
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: $clr-secondary;
+        }
+    }
+
+    &__text {
+        position: relative;
+        left: 20%;
+    }
+
+    &__heading {
+        font-weight: 400;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    &__description {
+        color: #4a4a4a;
+        max-width: 15vw;
+    }
+}
+
+
+@include laptop {
+    .timeline {
+        &__description {
+            max-width: 20vw;
+        }
+
+        &__text {
+            left: 15%;
+        }
+    }
+}

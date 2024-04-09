@@ -1,0 +1,56 @@
+@import '../../../../assets/styles/index';
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 40px 0;
+
+    .box {
+        align-items: start;
+    }
+
+    &_logo {
+        max-height: 5vh;
+        align-self: start;
+    }
+
+    &__heading {
+        margin-bottom: 1vh;
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        margin-bottom: 3px;
+
+        & a {
+            color: #fff;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .footer {
+        .box {
+            flex-direction: column;
+            row-gap: 20px;
+            align-items: center;
+        }
+
+        &_logo {
+            max-height: 10vh;
+            align-self: center;
+        }
+
+        &__item {
+            text-align: center;
+        }
+    }
+}

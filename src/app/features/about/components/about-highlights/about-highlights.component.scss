@@ -1,0 +1,54 @@
+@import '../../../../../assets/styles/index';
+
+.highlights {
+    padding: 20px 0;
+    background-color: $clr-primary;
+    color: rgb(0, 0, 0);
+}
+
+.box {
+    justify-content: space-around;
+}
+
+.highlights {
+
+    &__heading {
+        font-weight: 400;
+        font-size: 1.75rem;
+        margin: 0 auto 30px;
+        width: 200px;
+    }
+
+    &__item {
+        max-width: 20vw;
+    }
+
+    &-item__heading {
+        font-size: 1.25rem;
+    }
+
+    &-item__description {
+        margin-bottom: 10px;
+    }
+
+    &-item__paragraph {
+        color: hsl(0, 0%, 24%);
+    }
+
+}
+
+@include mobile {
+    .box {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .highlights {
+
+        &__item {
+            max-width: 60vw;
+            text-align: center;
+        }
+    }
+}

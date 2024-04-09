@@ -1,0 +1,46 @@
+@import '../../../../assets/styles/index';
+
+.navination {
+    height: 15vh;
+    font-size: 1.25rem;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.navigation {
+
+    .box {
+        gap: 20px;
+    }
+
+    &__logo {
+        max-height: 5vh;
+        margin-top: 5vh;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 35px;
+        margin-top: 5vh;
+        transform: translate(-10%);
+    }
+
+    &__list__item {
+        a {
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $clr-secondary;
+            }
+        }
+    }
+
+    &__cart {
+        max-height: 4vh;
+        margin-top: 5vh;
+    }
+}

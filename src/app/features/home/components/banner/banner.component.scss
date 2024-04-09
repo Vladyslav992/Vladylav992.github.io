@@ -1,0 +1,81 @@
+@import '../../../../../assets/styles/index';
+
+.banner {
+    background-color: $clr-primary;
+}
+
+.box {
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.banner {
+
+
+    &__heding {
+        flex: 0 1 30%;
+        align-self: start;
+
+    }
+
+    &__img {
+        max-width: 40vw;
+        flex: 0 1 40%;
+    }
+
+    &__text {
+        flex: 0 1 30%;
+        align-self: end;
+    }
+
+    &__paragraph {
+        line-height: 1.25rem;
+        margin-bottom: 20px;
+    }
+
+    &__button {
+        @include button(120px, 30px);
+        padding: 5px;
+    }
+}
+
+@include tablet {
+    .box {
+        flex-direction: column;
+    }
+
+    .banner {
+        &__heding {
+            text-wrap: nowrap;
+            width: auto;
+            align-self: center;
+            justify-self: center;
+        }
+
+        &__img {
+            width: 400px;
+        }
+
+        &__text {
+            width: auto;
+            align-self: center;
+
+        }
+
+        &__button {
+            margin: 0 auto;
+        }
+    }
+}
+
+@include mobile {
+    .banner {
+        &__heding {
+            font-size: 1rem;
+        }
+
+        &__text {
+            width: auto;
+        }
+    }
+}

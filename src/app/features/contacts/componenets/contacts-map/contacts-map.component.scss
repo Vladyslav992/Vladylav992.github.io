@@ -1,0 +1,25 @@
+@import '../../../../../assets/styles/index';
+
+.box {
+    flex-direction: column;
+}
+
+.map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+
+    &__heading {
+        width: auto;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    &__widget {
+        width: 50vw;
+        border-radius: 50px;
+        overflow: hidden;
+        border: 1px dashed hsl(0, 0%, 0%);
+    }
+}

@@ -1,0 +1,26 @@
+%align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%main-heading {
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+%button {
+    background-color: $clr-secondary;
+    border: 1px solid black;
+    cursor: pointer;
+    @extend %align-center;
+    transition: all 0.3s;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    &:active {
+        background-color: $clr-primary;
+    }
+}

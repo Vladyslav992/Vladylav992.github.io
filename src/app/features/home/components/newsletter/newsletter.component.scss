@@ -1,0 +1,47 @@
+@import '../../../../../assets/styles/index';
+
+.newsletter {
+    padding: 40px 0;
+}
+
+.container {}
+
+.newsletter {
+
+    .box {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__heading {
+        text-transform: uppercase;
+    }
+
+    &__paragraph {
+        max-width: 36vw;
+        line-height: 1.25rem;
+    }
+
+    &__input {
+        outline: none;
+        border: 1px solid black;
+        width: 300px;
+        height: 30px;
+        border-radius: 30px;
+        padding: 5px;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+
+
+        &:focus {
+            box-shadow: 3px 3px 5px $clr-secondary;
+        }
+    }
+
+    &__button {
+        @include button(120px, 30px);
+    }
+}

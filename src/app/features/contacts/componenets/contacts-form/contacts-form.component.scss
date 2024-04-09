@@ -1,0 +1,70 @@
+@import '../../../../../assets/styles/index';
+
+.form {
+    padding: 40px 0;
+}
+
+.box {
+    gap: 20px;
+}
+
+.form {
+    &__text {
+        flex: 0 1 40%
+    }
+
+    &__text h2 {
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    &__text p {
+        line-height: 1.35rem;
+
+    }
+
+
+    &__container {
+        flex: 0 1 50%
+    }
+
+    &__input {
+        margin-bottom: 20px;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 5px;
+        justify-self: start;
+    }
+
+    &__field {
+        border: 1px solid hsl(0, 0%, 0%);
+        padding: 8px;
+        outline: none;
+        min-height: 30px;
+        border-radius: 30px;
+        transition: all 0.3s;
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+
+        &:focus {
+            box-shadow: 2px 2px 3px $clr-secondary;
+        }
+    }
+
+
+    &__submit {
+        @include button(100px, 30px);
+        padding: 8px;
+    }
+
+}
+
+@include tablet {
+    .box {
+        flex-direction: column;
+    }
+}
