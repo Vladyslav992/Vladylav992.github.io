@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GoogleMapsModule } from '@angular/google-maps';
 
-import { ContactsComponent } from './componenets/contacts/contacts.component';
-import { ContactsFormComponent } from './componenets/contacts-form/contacts-form.component';
-import { ContactsHeadingComponent } from './componenets/contacts-heading/contacts-heading.component';
-import { ContactsMapComponent } from './componenets/contacts-map/contacts-map.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { ContactsFormComponent } from './components/contacts-form/contacts-form.component';
+import { ContactsHeadingComponent } from './components/contacts-heading/contacts-heading.component';
+import { ContactsMapComponent } from './components/contacts-map/contacts-map.component';
 import { RouterModule } from '@angular/router';
+import { ContactsRoutingModule } from './contacts-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,11 @@ import { RouterModule } from '@angular/router';
     ContactsHeadingComponent,
     ContactsMapComponent,
   ],
-  imports: [CommonModule, GoogleMapsModule, RouterModule],
+  imports: [
+    CommonModule,
+    GoogleMapsModule,
+    RouterModule,
+    ContactsRoutingModule,
+  ],
 })
 export class ContactsModule {}

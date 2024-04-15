@@ -11,6 +11,7 @@ import { FeaturesModule } from './features/features.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     SharedModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

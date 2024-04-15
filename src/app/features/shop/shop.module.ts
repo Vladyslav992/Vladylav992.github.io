@@ -5,9 +5,17 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShopComponent } from './components/shop/shop.component';
 
 import { LimitCharactersPipe } from '../../shared/pipes/limit-characters.pipe';
+import { RouterLink } from '@angular/router';
+import { ShopRoutingModule } from './shop-routing.module';
 
 @NgModule({
   declarations: [ProductsComponent, ShopComponent],
-  imports: [CommonModule, FormsModule, LimitCharactersPipe],
+  imports: [
+    CommonModule,
+    FormsModule,
+    LimitCharactersPipe,
+    RouterLink,
+    ShopRoutingModule,
+  ],
 })
 export class ShopModule {}

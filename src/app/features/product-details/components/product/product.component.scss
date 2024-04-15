@@ -1,0 +1,178 @@
+@import "../../../../../assets/styles/index";
+
+.product {
+  padding: 20px 0;
+  min-height: 85vh;
+}
+
+.product {
+  .box {
+    gap: 20px;
+    align-items: start;
+  }
+
+  &__img {
+    max-width: 50%;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid hsl(0, 0%, 0%);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  &__name {
+    font-size: 1.75rem;
+    color: $clr-secondary;
+  }
+
+  &__description {
+    line-height: 1.25rem;
+    color: hsl(0, 0%, 26%);
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__price-current {
+    font-size: 1.5rem;
+  }
+
+  &__price-initial {
+    font-size: 1.25rem;
+    color: hsl(0, 0%, 59%);
+    text-decoration: line-through;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  &__star {
+    font-size: 1.25rem;
+  }
+  &__review-link {
+    color: hsl(0, 0%, 0%);
+    margin-left: auto;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: $clr-secondary;
+    }
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-cart {
+      @include button(50%, 30px);
+    }
+    &-wishlist {
+      @include button(50%, 30px);
+      background-color: transparent;
+    }
+  }
+}
+
+.review {
+  border: 1px solid hsl(0, 0%, 0%);
+  border-radius: 10px;
+  padding: 20px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid hsl(0, 0%, 0%);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  &__heading {
+    font-size: 1.25rem;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: fit-content;
+  }
+
+  &__author {
+    font-weight: 600;
+  }
+
+  &__text {
+    line-height: 1.25rem;
+  }
+
+  &__rating {
+    display: flex;
+  }
+  &__star_active {
+    color: $clr-secondary;
+  }
+}
+
+@include laptop {
+  .product {
+    .box {
+      flex-direction: column;
+    }
+
+    &__img {
+      max-width: 100%;
+    }
+
+    &__name {
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    &__price {
+      width: fit-content;
+      margin: 0 auto;
+    }
+    &__button {
+      width: fit-content;
+      margin: 0 auto;
+    }
+  }
+}
+
+@include mobile {
+  .product {
+    .button {
+      &-cart {
+        width: 100%;
+      }
+      &-wishlist {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,38 +1,44 @@
 <footer class="footer">
-    <div class="container">
-        <div class="box">
-            <img class="footer_logo" src="/assets/img/logo.png" alt="logo">
+  <div class="container">
+    <div class="box">
+      <img class="footer_logo" src="/assets/img/logo.png" alt="logo" />
 
+      <div class="footer__list-conainer">
+        <h3 class="footer__heading">Products</h3>
+        <ul class="footer__list">
+          <li class="footer__item"><a [routerLink]="'/shop'">Sneakers</a></li>
+          <li class="footer__item"><a [routerLink]="'/shop'">Loafers</a></li>
+          <li class="footer__item"><a [routerLink]="'/shop'">Boots</a></li>
+          <li class="footer__item"><a [routerLink]="'/shop'">Football</a></li>
+        </ul>
+      </div>
 
-            <div class="footer__list-conainer">
-                <h3 class="footer__heading">Products</h3>
-                <ul class="footer__list">
-                    <li class="footer__item"><a [routerLink]="'/Shop'">Sneakers</a></li>
-                    <li class="footer__item"><a [routerLink]="'/Shop'">Loafers</a></li>
-                    <li class="footer__item"><a [routerLink]="'/Shop'">Boots</a></li>
-                    <li class="footer__item"><a [routerLink]="'/Shop'">Football</a></li>
-                </ul>
-            </div>
+      <div class="footer__list-conainer">
+        <h3 class="footer__heading">About Us</h3>
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a [routerLink]="'/about'" fragment="highlights">Achievements</a>
+          </li>
+          <li class="footer__item">
+            <a [routerLink]="'/about'" fragment="history">History</a>
+          </li>
+        </ul>
+      </div>
 
-            <div class="footer__list-conainer">
-                <h3 class="footer__heading">About Us</h3>
-                <ul class="footer__list">
-                    <li class="footer__item"> <a [routerLink]="'/About/Highlights'"
-                            fragment="highlights">Achievments</a></li>
-                    <li class="footer__item"> <a [routerLink]="'/About/History'" fragment="history">History</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__list-conainer">
-                <h3 class="footer__heading">Advertisement</h3>
-                <ul class="footer__list">
-                    <li class="footer__item"><a [routerLink]="'/Home/Collections'" fragment="collections">
-                            Bestsellers</a></li>
-                    <li class="footer__item"><a [routerLink]="'/Home/Banner'" fragment="banner">Banner</a></li>
-                    <li class="footer__item"><a [routerLink]="'/Home/Newsletter'" fragment="newsletter">Newsletter</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+      <div class="footer__list-conainer">
+        <h3 class="footer__heading">Advertisement</h3>
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a [routerLink]="'/home'" fragment="collections"> Bestsellers</a>
+          </li>
+          <li class="footer__item">
+            <a [routerLink]="'/home'" fragment="banner">Banner</a>
+          </li>
+          <li class="footer__item">
+            <a [routerLink]="'/home'" fragment="newsletter">Newsletter</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </footer>

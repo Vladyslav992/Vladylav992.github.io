@@ -3,7 +3,11 @@
     <div class="box">
       <div class="products__container">
         <ng-container *ngFor="let item of productsList">
-          <div class="products__card" [class]="getDiscountClass(item.discount)">
+          <div
+            class="products__card"
+            [class]="getDiscountClass(item.discount)"
+            [routerLink]="['/products', item.id]"
+          >
             <img
               class="products__img"
               [src]="item.imgUrl"

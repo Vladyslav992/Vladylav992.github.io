@@ -1,26 +1,21 @@
 import { Injectable } from '@angular/core';
-import { data } from '../../../../assets/data';
 import { Product } from './products.interface';
 import { Observable, of } from 'rxjs';
+import { ProductsDiscountService } from './products-discount.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  constructor() {}
+  constructor(private productsDiscountService: ProductsDiscountService) {}
 
   getProducts(): Observable<Product[]> {
-    return of(
-      data.map((item: any, index: number) => {
-        if (item.main) {
-          item.discount = 0.7;
-        } else if (index === 1 || index === 2) {
-          item.discount = 0.6;
-        } else {
-          item.discount = 0.5;
-        }
-        return item;
-      })
-    );
+    return of(this.productsDiscountService.getDataWithDiscount());
+  }
+
+  getProductById(productId: number) {
+    return this.productsDiscountService
+      .getDataWithDiscount()
+      .find((product) => product.id === productId);
   }
 }

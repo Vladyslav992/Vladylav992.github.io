@@ -1,0 +1,104 @@
+<div class="container">
+  <div *ngIf="product" class="product">
+    <div class="box">
+      <img class="product__img" src="{{ product.imgUrl }}" alt="bike" />
+
+      <div class="product__container">
+        <div class="product__details">
+          <p class="product__name">{{ product.name }}</p>
+
+          <p class="product__description">{{ product.description }}</p>
+
+          <div class="product__price">
+            <p class="product__price-current">
+              {{
+                product.price - product.price * product.discount
+                  | currency : "EUR"
+              }}
+            </p>
+            <p class="product__price-initial">
+              {{ product.price | currency : "EUR" }}
+            </p>
+          </div>
+
+          <div class="product__rating">
+            <div
+              class="product__star"
+              *ngFor="let rating of [1, 2, 3, 4, 5]"
+              [class.review__star_active]="getAverageRating(product) >= rating"
+            >
+              ★
+            </div>
+
+            <div class="product__review-count">
+              ({{ product.review.length }})
+            </div>
+
+            <a
+              class="product__review-link"
+              [routerLink]="['/products', product.id]"
+              fragment="review"
+              >Read all reviews</a
+            >
+          </div>
+
+          <mat-form-field class="product__select-field">
+            <mat-label class="product__label">Select Color</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let color of product.color" [value]="color">{{
+                color
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="product__select-field">
+            <mat-label>Select Size</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let size of product.size" [value]="size">{{
+                size
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="product__quantity">
+            <mat-form-field class="example-full-width">
+              <mat-label>Quantity</mat-label>
+              <input matInput type="number" value="1" min="1" />
+            </mat-form-field>
+          </div>
+
+          <div class="product__buttons button">
+            <button type="button" class="button-cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Add to cart
+            </button>
+            <button type="button" class="button-wishlist">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>Add to wishlist
+            </button>
+          </div>
+        </div>
+
+        <div class="review" id="review">
+          <h2 class="review__heading">Reviews</h2>
+
+          <div class="review__container">
+            <div class="review__card" *ngFor="let review of product.review">
+              <p class="review__author">{{ review.author }}</p>
+              <p class="review__text">{{ review.text }}</p>
+
+              <div class="review__rating">
+                <div
+                  class="review__star"
+                  *ngFor="let rating of [1, 2, 3, 4, 5]"
+                  [class.review__star_active]="rating <= review.rating"
+                >
+                  ★
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
