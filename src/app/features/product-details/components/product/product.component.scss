@@ -25,7 +25,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     border: 1px solid hsl(0, 0%, 0%);
     border-radius: 10px;
     padding: 20px;
@@ -36,9 +36,21 @@
     color: $clr-secondary;
   }
 
-  &__description {
+  &__description-button {
+    @extend %link;
+  }
+
+  &__description-text {
     line-height: 1.25rem;
     color: hsl(0, 0%, 26%);
+  }
+
+  &__description-text.product__description_hidden {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   &__price {
@@ -66,18 +78,8 @@
     font-size: 1.25rem;
   }
   &__review-link {
-    color: hsl(0, 0%, 0%);
+    @extend %link;
     margin-left: auto;
-    text-decoration: none;
-    transition: all 0.3s;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: $clr-secondary;
-    }
   }
 
   .button {

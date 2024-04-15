@@ -1,31 +1,31 @@
 @keyframes appearOpacity {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes appearHeading {
-    0% {
-        width: 100%;
-    }
+  0% {
+    transform: scale(1);
+  }
 
-    100% {
-        width: 0%;
-    }
+  100% {
+    transform: scale(0);
+  }
 }
 
 @keyframes appearText {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateY(o);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -4,5 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.scss',
+
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactsComponent {}

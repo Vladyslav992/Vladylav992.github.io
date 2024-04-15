@@ -12,6 +12,9 @@ import { Product } from '../../../../core/services/products/products.interface';
 export class ProductComponent implements OnInit {
   product: Product | undefined;
 
+  descriptionHidden: boolean = true;
+  linkText: string = 'Read more';
+
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService
@@ -33,5 +36,10 @@ export class ProductComponent implements OnInit {
     });
     averageRating = Math.ceil(averageRating / product.review.length);
     return averageRating;
+  }
+
+  toggleDescriptionVisibility() {
+    this.descriptionHidden = !this.descriptionHidden;
+    this.linkText = this.descriptionHidden ? 'Read more' : 'Read less';
   }
 }
