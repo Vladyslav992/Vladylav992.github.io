@@ -1,0 +1,38 @@
+@import "../../../../../assets/styles/index";
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+mat-option {
+  padding: 20px;
+}
+.heading {
+  height: 100px;
+  @extend %align-center;
+
+  &__text {
+    font-weight: 400;
+    font-size: 2rem;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      width: 50%;
+      height: 30px;
+      border-bottom: 4px solid $clr-secondary;
+      position: absolute;
+      top: 25px;
+      left: 30%;
+    }
+  }
+}
+
+.button {
+  @include button(100px, 30px);
+}

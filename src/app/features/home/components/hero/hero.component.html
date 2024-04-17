@@ -1,20 +1,32 @@
 <header class="hero">
-    <div class="container">
-        <div class="box">
-            <div class="hero__text">
+  <div class="container">
+    <div class="box">
+      <div class="hero__text">
+        <h1 class="hero__heading">
+          Find the best bike for you with
+          <span class="highlight">Cycle Cellar</span>
+        </h1>
+        <p class="hero__paragraph">
+          More than 1000 clients trust us and our products
+        </p>
 
-                <h1 class="hero__heading">Find the best bike for you with <span class="highlight">Cycle Cellar</span>
-                </h1>
-                <p class="hero__paragraph">More than 1000 clients trust us and our products</p>
-
-                <div class="hero__button-container">
-                    <div class="hero__button" [routerLink]="'/Shop'">Buy Now</div>
-                    <div class="hero__button hero__button_tranperent" [routerLink]="'/About'">Explore</div>
-                </div>
-
-            </div>
-
-            <img class="hero__img" src="/assets/img/bike.png" alt="Nike Air 270" loading="lazy">
+        <div class="hero__button-container">
+          <div class="hero__button" [routerLink]="'/Shop'">Buy Now</div>
+          <div
+            class="hero__button hero__button_tranperent"
+            [routerLink]="'/About'"
+          >
+            Explore
+          </div>
         </div>
+      </div>
+
+      <img
+        class="hero__img"
+        src="/assets/img/bike.png"
+        alt="Nike Air 270"
+        loading="lazy"
+      />
     </div>
+  </div>
 </header>

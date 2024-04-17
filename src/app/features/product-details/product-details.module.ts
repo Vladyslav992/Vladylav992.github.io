@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from './components/product/product.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductDetailsRoutingModule } from './product-details-routing.module';
 import { RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [ProductComponent],
+  declarations: [ProductDetailsComponent],
   imports: [
     CommonModule,
     ProductDetailsRoutingModule,
