@@ -4,9 +4,9 @@
       <div class="cart__products">
         <div class="cart__header">
           <h1 class="cart__heading">
-            Cart <span class="cart__count">(2 products)</span>
+            Cart <span class="cart__count">({{ items.length }} products)</span>
           </h1>
-          <button class="cart__clear" (click)="clearCart()">Clear cart</button>
+          <button (click)="clearCart()" class="cart__clear">Clear cart</button>
         </div>
 
         <div class="cart__subheader">
@@ -16,26 +16,26 @@
         </div>
 
         <div class="cart__product-container">
-          <div class="product" *ngFor="let item of items">
-            <img class="product__image" [src]="item.imgUrl" alt="" />
+          <div *ngFor="let item of items" class="product">
+            <img [src]="item.imgUrl" alt="" class="product__image"/>
 
             <div class="product__description">
               <p class="product__name">{{ item.name }}</p>
-              <p class="product__size">Size: {{ item.size }}</p>
-              <p class="product__color">Color: {{ item.color }}</p>
+              <p *ngIf="item.size" class="product__size">Size: {{ item.size }}</p>
+              <p *ngIf="item.color" class="product__color">Color: {{ item.color }}</p>
             </div>
 
             <div class="product__quantity-selector">
               <button
-                class="product__quantity-decrease"
                 (click)="decreaseQuantity(item)"
+                class="product__quantity-decrease"
               >
                 -
               </button>
               <div class="product__quantity">{{ item.quantity }}</div>
               <button
-                class="product__quantity-increase"
                 (click)="increaseQuantity(item)"
+                class="product__quantity-increase"
               >
                 +
               </button>
@@ -49,8 +49,8 @@
             </p>
 
             <button
-              class="product__remove"
               (click)="deleteFromCart(item)"
+              class="product__remove"
             ></button>
           </div>
         </div>
@@ -59,12 +59,12 @@
       <div class="cart__summary">
         <div class="cart__price cart__price_subtotal">
           <div class="cart__price-description">Subtotal:</div>
-          <div class="cart__price-value">$899.97</div>
+          <div class="cart__price-value"> {{ totalPrice | currency : "EUR" }}</div>
         </div>
 
         <div class="cart__price cart__price_discount">
           <div class="cart__price-description">Discount:</div>
-          <div class="cart__price-value">$0.00</div>
+          <div class="cart__price-value">€0.00</div>
         </div>
 
         <div class="cart__price cart__price_total">
@@ -74,8 +74,9 @@
           </div>
         </div>
 
-        <a [routerLink]="'/order/catalog'">
-          <div class="cart__checkout">Continue to checkout</div></a
+        <a [routerLink]="'/order'" class="cart__link">
+          <div class="cart__checkout">Continue to checkout</div>
+        </a
         >
       </div>
     </div>

@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="heading">
+    <div class="container">
+      <h1 class="heading__text">Choose preferred payment method</h1>
+    </div>
+  </div>
+  <div class="box">
+    <form [formGroup]="paymentMethodForm" action="" class="payment__form">
+      <div class="payment__methods">
+        <div class="payment__method-container">
+          <h2 class="payment__heading">Cash</h2>
+
+          <input
+            class="payment__radio"
+            formControlName="paymentMethod"
+            id="cash"
+            type="radio"
+            value="cash"
+          />
+          <label
+            class="payment__method payment__method_cash"
+            for="cash"
+          ></label>
+        </div>
+
+        <div class="payment__method-container">
+          <h2 class="payment__heading">Card</h2>
+
+          <input
+            class="payment__radio"
+            formControlName="paymentMethod"
+            id="card"
+            type="radio"
+            value="card"
+          />
+          <label
+            class="payment__method payment__method_card"
+            for="card"
+          ></label>
+        </div>
+        <div class="payment__method-container">
+          <h2 class="payment__heading">Digital wallet</h2>
+
+          <input
+            class="payment__radio"
+            formControlName="paymentMethod"
+            id="paypal"
+            type="radio"
+            value="paypal"
+          /><label
+          class="payment__method payment__method_paypal"
+          for="paypal"
+        ></label>
+        </div>
+      </div>
+    </form>
+
+    <div class="buttons-container">
+      <a
+        (click)="doStepChange('prev')"
+        class="button"
+      >Previous</a
+      >
+      <a
+        (click)="doStepChange('next')"
+        class="button"
+      >Next</a
+      >
+    </div>
+  </div>
+</div>

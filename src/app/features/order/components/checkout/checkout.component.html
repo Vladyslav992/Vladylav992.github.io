@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="heading">
+    <h1 class="heading__text">Confirm your data</h1>
+  </div>
+
+  <div class="box">
+    <div class="checkout-container">
+      <h2 class="checkout__heading">Goods you've chosen</h2>
+      <div class="checkout__content">
+        <p>{{ productNames }}</p>
+      </div>
+    </div>
+
+    <div class="checkout-container">
+      <h2 class="checkout__heading">Your address</h2>
+      <div class="checkout__content">
+        <p>Country:{{ country }} <span></span></p>
+
+        <p>City:{{ city }} <span></span></p>
+
+        <p>Address:{{ address }} <span></span></p>
+      </div>
+    </div>
+
+    <div class="checkout-container">
+      <h2 class="checkout__heading">Payment Method</h2>
+      <div class="checkout__content"><p>{{ paymentMethod }}</p></div>
+    </div>
+
+    <div class="checkout-container">
+      <h2 class="checkout__heading">Date of delivery</h2>
+      <div class="checkout__content"><p>{{ deliveryDate }}</p></div>
+    </div>
+
+    <div class="buttons-container">
+      <a
+        (click)="doStepChange('prev')"
+        class="button"
+      >Previous</a
+      >
+      <button
+        (click)="onSubmit()"
+        [routerLink]="'/home'"
+        class="button"
+        type="submit"
+      >Submit
+      </button
+      >
+    </div>
+  </div>
+</div>

@@ -1,21 +1,26 @@
 @import "../../../../../assets/styles/index";
 
-.heading {
-  @extend %main-heading;
-}
-
 .box {
-  @extend %align-center;
   flex-direction: column;
   gap: 20px;
   padding: 20px 0;
 }
 
-.address {
-  &__form {
+.heading {
+  @extend %main-heading;
+}
+
+.checkout {
+  &-container {
     @extend %align-center;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+  }
+
+  &__heading {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: hsl(0, 0%, 29%);
   }
 }
 

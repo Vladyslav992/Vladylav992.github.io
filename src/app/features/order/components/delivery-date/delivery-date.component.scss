@@ -1,0 +1,93 @@
+@import "../../../../../assets/styles/index";
+
+.box {
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.heading {
+  @extend %main-heading;
+}
+
+.delivery {
+  &__form {
+    @extend %align-center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  &__date {
+    @extend %align-center;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-weight: 400;
+    color: hsl(0, 0%, 28%);
+  }
+
+  &__calendar {
+    width: 150px;
+    height: 30px;
+    border-radius: 30px;
+    border: 2px solid $clr-secondary;
+    padding: 10px;
+
+    &:focus {
+      outline: none;
+      box-shadow: 2px 2px 5px $clr-secondary;
+    }
+  }
+
+  &__radio {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $clr-secondary;
+    border-radius: 50%;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+
+    &:checked {
+      background-color: $clr-secondary;
+      outline: 3px solid rgb(255, 127, 253);
+
+      &::after {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 10px;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        transform: translate(-50%, -50%) rotate(45deg);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+    }
+  }
+}
+
+.form {
+  &__button {
+    @include button(100px, 30px);
+    color: black;
+    text-decoration: none;
+  }
+}
+
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  .button {
+    @include button(100px, 30px);
+    color: black;
+    text-decoration: none;
+  }
+}
+

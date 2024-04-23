@@ -1,17 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CatalogDropdownComponent } from './components/catalog-dropdown/catalog-dropdown.component';
-import { OrderRoutingModule } from './order-routing.module';
-import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatListModule } from '@angular/material/list';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormField } from '@angular/material/select';
-import { LimitCharactersPipe } from '@app/shared/pipes/limit-characters.pipe';
-import { AddressComponent } from './components/address/address.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CatalogDropdownComponent} from './components/catalog-dropdown/catalog-dropdown.component';
+import {OrderRoutingModule} from './order-routing.module';
+import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
+import {MatFormField, MatSelectModule} from '@angular/material/select';
+import {LimitCharactersPipe} from '@app/shared/pipes/limit-characters.pipe';
+import {AddressComponent} from './components/address/address.component';
+import {MatInputModule} from '@angular/material/input';
+import {PaymentMethodComponent} from './components/payment-method/payment-method.component';
+import {DeliveryDateComponent} from './components/delivery-date/delivery-date.component';
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { FormContainerComponent } from './components/form-container/form-container.component';
 
 @NgModule({
-  declarations: [CatalogDropdownComponent, AddressComponent],
+  declarations: [
+    CatalogDropdownComponent,
+    AddressComponent,
+    PaymentMethodComponent,
+    DeliveryDateComponent,
+    CheckoutComponent,
+    FormContainerComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -22,6 +34,11 @@ import { AddressComponent } from './components/address/address.component';
     MatListModule,
     MatFormField,
     LimitCharactersPipe,
+    MatInputModule,
+    MatDatepickerToggle,
+    MatDatepicker,
+    MatDatepickerInput,
   ],
 })
-export class OrderModule {}
+export class OrderModule {
+}

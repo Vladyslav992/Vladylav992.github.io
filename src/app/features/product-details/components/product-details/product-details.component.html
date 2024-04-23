@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngIf="product" class="product">
     <div class="box">
-      <img class="product__img" src="{{ product.imgUrl }}" alt="bike" />
+      <img alt="bike" class="product__img" src="{{ product.imgUrl }}"/>
 
       <div class="product__container">
         <div class="product__details">
@@ -9,14 +9,14 @@
 
           <div class="product__description">
             <p
-              class="product__description-text"
               [class.product__description_hidden]="descriptionHidden"
+              class="product__description-text"
             >
               {{ product.description }}
             </p>
             <div
-              class="product__description-button"
               (click)="toggleDescriptionVisibility()"
+              class="product__description-button"
             >
               {{ linkText }}
             </div>
@@ -25,7 +25,7 @@
           <div class="product__price">
             <p class="product__price-current">
               {{
-                product.price - product.price * product.discount
+                priceWithDiscount
                   | currency : "EUR"
               }}
             </p>
@@ -36,9 +36,9 @@
 
           <div class="product__rating">
             <div
-              class="product__star"
               *ngFor="let rating of [1, 2, 3, 4, 5]"
-              [class.review__star_active]="getAverageRating(product) >= rating"
+              [class.review__star_active]="averageRating >= rating"
+              class="product__star"
             >
               ★
             </div>
@@ -48,10 +48,10 @@
             </div>
 
             <a
-              class="product__review-link"
               [routerLink]="['/products', product.id]"
+              class="product__review-link"
               fragment="review"
-              >Read all reviews</a
+            >Read all reviews</a
             >
           </div>
 
@@ -59,8 +59,9 @@
             <mat-label class="product__label">Select Color</mat-label>
             <mat-select (valueChange)="color = $event">
               <mat-option *ngFor="let color of product.color" [value]="color">{{
-                color
-              }}</mat-option>
+                  color
+                }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -68,8 +69,9 @@
             <mat-label>Select Size</mat-label>
             <mat-select (valueChange)="size = $event">
               <mat-option *ngFor="let size of product.size" [value]="size">{{
-                size
-              }}</mat-option>
+                  size
+                }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
 
@@ -77,21 +79,21 @@
             <mat-form-field class="example-full-width">
               <mat-label>Quantity</mat-label>
               <input
+                [(ngModel)]="quantity"
                 matInput
+                min="1"
                 type="number"
                 value="1"
-                min="1"
-                [(ngModel)]="quantity"
               />
             </mat-form-field>
           </div>
 
           <div class="product__buttons button">
-            <button type="button" class="button-cart" (click)="addToCart()">
+            <button (click)="addToCart()" class="button-cart" type="button">
               <i class="fa-solid fa-cart-shopping"></i>
               Add to cart
             </button>
-            <button type="button" class="button-wishlist">
+            <button class="button-wishlist" type="button">
               <i class="fa-solid fa-wand-magic-sparkles"></i>Add to wishlist
             </button>
           </div>
@@ -101,15 +103,15 @@
           <h2 class="review__heading">Reviews</h2>
 
           <div class="review__container">
-            <div class="review__card" *ngFor="let review of product.review">
+            <div *ngFor="let review of product.review" class="review__card">
               <p class="review__author">{{ review.author }}</p>
               <p class="review__text">{{ review.text }}</p>
 
               <div class="review__rating">
                 <div
-                  class="review__star"
                   *ngFor="let rating of [1, 2, 3, 4, 5]"
                   [class.review__star_active]="rating <= review.rating"
+                  class="review__star"
                 >
                   ★
                 </div>

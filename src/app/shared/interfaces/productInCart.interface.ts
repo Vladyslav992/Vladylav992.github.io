@@ -1,4 +1,4 @@
-export interface ProductToCart {
+export interface ProductInCart {
   id: number;
   name: string | undefined;
   description: string;

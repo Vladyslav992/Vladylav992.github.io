@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
-import { CartService } from '@app/core/services/cart.service';
-import { ProductToCart } from '@app/shared/interfaces/productToCart.interface';
+import {CartService} from '@app/core/services/cart.service';
+import {ProductInCart} from '@app/shared/interfaces/productInCart.interface';
 
 @Component({
   selector: 'app-cart',
@@ -10,16 +10,9 @@ import { ProductToCart } from '@app/shared/interfaces/productToCart.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  items: ProductInCart[] = [];
 
-  items: ProductToCart[] = [];
-
-  ngOnInit(): void {
-    this.cartService.items$.subscribe((items) => {
-      this.items = items;
-    });
-
-    this.cartService.getFromLocalStorage();
+  constructor(private cartService: CartService) {
   }
 
   get totalPrice() {
@@ -31,19 +24,27 @@ export class CartComponent implements OnInit {
     return totalPrice;
   }
 
+  ngOnInit(): void {
+    this.cartService.items$.subscribe((items) => {
+      this.items = items;
+    });
+
+    this.cartService.getFromLocalStorage();
+  }
+
   clearCart() {
     this.cartService.clearCart();
   }
 
-  increaseQuantity(item: ProductToCart) {
+  increaseQuantity(item: ProductInCart) {
     this.cartService.increaseQuantity(item);
   }
 
-  decreaseQuantity(item: ProductToCart) {
+  decreaseQuantity(item: ProductInCart) {
     this.cartService.decreaseQuantity(item);
   }
 
-  deleteFromCart(item: ProductToCart) {
-    this.cartService.deleteFromCart(item);
+  deleteFromCart(item: ProductInCart) {
+    this.cartService.deleteItemFromCart(item);
   }
 }

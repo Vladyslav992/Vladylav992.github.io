@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-contacts-form',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './contacts-form.component.scss'
 })
 export class ContactsFormComponent {
+  name = '';
+  surname = '';
+  email = '';
+  description = '';
 
+  onSubmit() {
+    console.log(this.name, this.surname, this.email, this.description);
+  }
 }

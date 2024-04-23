@@ -1,1 +1,54 @@
-<p>address works!</p>
+<div class="container">
+  <div class="heading">
+    <div class="container">
+      <h1 class="heading__text">Enter your address here</h1>
+    </div>
+  </div>
+
+  <form [formGroup]="addressForm" action="" class="address__form">
+    <div class="box" formGroupName="location">
+      <mat-form-field appearance="outline"
+      >
+        <mat-label>Country</mat-label>
+        <input
+          formControlName="country"
+          matInput
+          placeholder="Country"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline"
+      >
+        <mat-label>City</mat-label>
+        <input formControlName="city" matInput placeholder="City" required/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline"
+      >
+        <mat-label>Address</mat-label>
+        <input
+          formControlName="address"
+          matInput
+          placeholder="Address"
+          required
+        />
+      </mat-form-field>
+    </div>
+  </form>
+
+
+  <div class="buttons-container">
+    <a
+      (click)="doStepChange('prev')"
+      class="button"
+    >Previous</a
+    >
+    <a
+      (click)="doStepChange('next')"
+      class="button"
+    >Next</a
+    >
+
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<script src="delivery-date.component.ts"></script>
+<div class="container">
+  <div class="heading">
+    <h1 class="heading__text">Choose date of delivery</h1>
+  </div>
+  <div class="box">
+    <form [formGroup]="deliveryDateForm" action="">
+      <div class="delivery__form" formGroupName="deliveryDate">
+        <div class="delivery__date">
+          <label class="delivery__label" for="today">Today</label>
+          <input
+            (change)="onRadioChange()"
+            [value]="todayDate | date : 'yyyy-MM-dd'"
+            class="delivery__radio"
+            formControlName="predefinedDateOption"
+            id="today" type="radio"/>
+        </div>
+
+        <div class="delivery__date">
+          <label class="delivery__label" for="tomorrow">Tomorrow</label>
+          <input
+            (change)="onRadioChange()"
+            [value]="tomorrowDate | date : 'yyyy-MM-dd'"
+            class="delivery__radio"
+            formControlName="predefinedDateOption"
+            id="tomorrow"
+            type="radio"
+          />
+        </div>
+
+        <div class="delivery__date">
+          <label class="delivery__label" for="own-date">Own date</label>
+          <input
+            (change)="onCalendarChange()"
+            class="delivery__calendar"
+            formControlName="customDate"
+            id="own-date"
+            min="{{ todayDate | date : 'yyyy-MM-dd' }}"
+            type="date"
+          />
+        </div>
+      </div>
+    </form>
+
+
+    <div class="buttons-container">
+      <a
+        (click)="doStepChange('prev')"
+        class="button"
+      >Previous</a
+      >
+      <a
+        (click)="doStepChange('next')"
+        class="button"
+      >Next</a
+      >
+    </div>
+  </div>
+</div>

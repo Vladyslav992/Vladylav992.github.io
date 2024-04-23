@@ -1,21 +1,22 @@
 <div class="container">
   <div class="heading">
-    <div class="container">
-      <h1 class="heading__text">Confirm your choice</h1>
-    </div>
+    <h1 class="heading__text">Confirm your choice</h1>
   </div>
   <div class="box">
-    <mat-form-field appearance="fill" [style]="{ width: '500px' }">
-      <mat-label>Catalog</mat-label>
-      <mat-select [formControl]="form" multiple="true">
-        <mat-select-trigger>{{ form.value }}</mat-select-trigger>
-        <mat-option *ngFor="let item of items" [value]="item.name">
-          <p>{{ item.name }}</p>
-          <p>{{ item.description | limitCharacters : 60 }}</p>
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <a [routerLink]="['/order/address']" class="button">Next</a>
+    <form [formGroup]="productNamesForm" action="">
+      <mat-form-field [style]="{ width: '500px' }" appearance="outline">
+        <mat-label>Catalog</mat-label>
+        <mat-select formControlName="productNames" multiple="true">
+          <mat-select-trigger>{{ productNames }}</mat-select-trigger>
+          <mat-option *ngFor="let item of (items$ | async)" [value]="item.name">
+            <p>{{ item.name }}</p>
+            <p>{{ item.description | limitCharacters : 60 }}</p>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <a (click)="doStepChange('next')" class="button"
+    >Next</a
+    >
   </div>
 </div>

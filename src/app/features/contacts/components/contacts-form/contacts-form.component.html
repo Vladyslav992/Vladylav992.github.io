@@ -1,36 +1,43 @@
 <div class="form">
-    <div class="container">
-        <div class="box">
+  <div class="container">
+    <div class="box">
 
-            <div class="form__text">
-                <h2>Connect With Us We're always here to help you step up your style!</h2>
-                <p>
-                    If you have any questions, feedback,
-                    or just want to talk , fill out the form below. Drop us your name, email, and message, and
-                    we'll
-                    make sure to get back to you as quickly as we can. Whether it's about our latest models, your
-                    order, your thoughts are valuable to us.
-                </p>
-            </div>
+      <div class="form__text">
+        <h2>Connect With Us We're always here to help you step up your style!</h2>
+        <p>
+          If you have any questions, feedback,
+          or just want to talk , fill out the form below. Drop us your name, email, and message, and
+          we'll
+          make sure to get back to you as quickly as we can. Whether it's about our latest models, your
+          order, your thoughts are valuable to us.
+        </p>
+      </div>
 
-            <form action="" method="get" class="form__container">
-                <div class="form__input">
-                    <label for="name" class="form__label">Name</label>
-                    <input type="text" class="form__field" name="name" id="name" placeholder="Enter your name">
-                </div>
-                <div class="form__input">
-                    <label for="email" class="form__label">Email address</label>
-                    <input type="email" class="form__field" name="email" id="email" placeholder="Enter your email">
-                </div>
-                <div class="form__input">
-                    <label for="" class="form__label">Message</label>
-                    <textarea type="text" class="form__field" placeholder="Enter your message here" rows="5"
-                        cols="30"></textarea>
-                </div>
-
-                <button class="form__submit" type="submit">Submit</button>
-            </form>
-
+      <form action="" class="form__container" method="get">
+        <div class="form__input">
+          <label class="form__label" for="name">Name</label>
+          <input [(ngModel)]="name" class="form__field" id="name" name="name" placeholder="Enter your name" type="text">
         </div>
+        <div class="form__input">
+          <label class="form__label" for="surname">Surname</label>
+          <input [(ngModel)]="surname" class="form__field" id="surname" name="name" placeholder="Enter your name"
+                 type="text">
+        </div>
+        <div class="form__input">
+          <label class="form__label" for="email">Email address</label>
+          <input [(ngModel)]="email" class="form__field" id="email" name="email" placeholder="Enter your email"
+                 type="email">
+        </div>
+        <div class="form__input">
+          <label class="form__label" for="description">Message</label>
+          <textarea [(ngModel)]="description" class="form__field" cols="30" id="description"
+                    name="descrition" placeholder="Enter your message here"
+                    rows="5" type="text"></textarea>
+        </div>
+
+        <button (click)="onSubmit()" class="form__submit" type="submit">Submit</button>
+      </form>
+
     </div>
+  </div>
 </div>

@@ -1,12 +1,14 @@
-import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CatalogDropdownComponent } from './components/catalog-dropdown/catalog-dropdown.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {FormContainerComponent} from "@app/features/order/components/form-container/form-container.component";
+
 const routes: Routes = [
-  { path: 'catalog', component: CatalogDropdownComponent },
+  {path: '', component: FormContainerComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class OrderRoutingModule {}
+export class OrderRoutingModule {
+}

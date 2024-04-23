@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Product } from '../../../../shared/interfaces/products.interface';
-import { ProductsService } from '../../../../core/services/products/products.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {Product} from '../../../../shared/interfaces/products.interface';
+import {ProductsService} from '../../../../core/services/products/products.service';
 
 @Component({
   selector: 'app-products',
@@ -9,10 +9,15 @@ import { ProductsService } from '../../../../core/services/products/products.ser
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  constructor(private productService: ProductsService) {}
-
   productsList: Product[];
   subscription: Subscription;
+
+  constructor(private productService: ProductsService) {
+  }
+
+  priceWithDiscount(product: Product) {
+    return product.price - product.price * product.discount;
+  }
 
   ngOnInit(): void {
     this.subscription = this.productService

@@ -4,14 +4,14 @@
       <div class="products__container">
         <ng-container *ngFor="let item of productsList">
           <div
-            class="products__card"
             [class]="getDiscountClass(item.discount)"
             [routerLink]="['/products', item.id]"
+            class="products__card"
           >
             <img
-              class="products__img"
-              [src]="item.imgUrl"
               [alt]="item.name"
+              [src]="item.imgUrl"
+              class="products__img"
               loading="lazy"
             />
             <div class="products__discount">
@@ -27,7 +27,7 @@
               <div class="products__price">
                 <p class="products__price_current">
                   {{
-                    item.price - item.price * item.discount | currency : "EUR"
+                    priceWithDiscount(item) | currency : "EUR"
                   }}
                 </p>
                 <p class="products__price_initial">

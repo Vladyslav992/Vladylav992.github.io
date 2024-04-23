@@ -1,19 +1,25 @@
 @import "../../../../../assets/styles/index";
+
 .cart {
   .box {
     gap: 20px;
+    padding: 20px 0;
   }
+
   &__header {
     display: flex;
   }
+
   &__heading {
     width: fit-content;
     font-size: 2rem;
   }
+
   &__count {
     font-size: 1.25rem;
     color: hsl(0, 0%, 60%);
   }
+
   &__clear {
     margin-left: auto;
     background-color: transparent;
@@ -45,6 +51,7 @@
     width: fit-content;
     margin-left: auto;
   }
+
   &__subheading.cart__subheading_price {
     width: fit-content;
     margin: 0 10% 0 25%;
@@ -64,6 +71,7 @@
     gap: 20px;
   }
 }
+
 .product {
   display: flex;
   align-items: center;
@@ -80,13 +88,16 @@
   &__size {
     color: hsl(0, 0%, 60%);
   }
+
   &__color {
     color: hsl(0, 0%, 60%);
   }
+
   &__quantity-selector {
     display: flex;
     align-items: center;
   }
+
   &__quantity-decrease {
     @include button(30px, 30px);
     background-color: transparent;
@@ -98,9 +109,11 @@
       color: red;
     }
   }
+
   &__quantity {
     padding: 0 15px;
   }
+
   &__quantity-increase {
     @include button(30px, 30px);
     background-color: transparent;
@@ -112,10 +125,11 @@
       color: green;
     }
   }
+
   &__price {
     font-size: 1.25rem;
     font-weight: 500;
-    width: 120px;
+    width: fit-content;
   }
 
   &__remove {
@@ -125,6 +139,7 @@
 
     &:hover {
       transform: none;
+      background: rgba(253, 7, 0, 0.27);
     }
 
     &::before {
@@ -150,6 +165,7 @@
     flex-direction: column;
     gap: 10px;
   }
+
   &__price {
     display: flex;
     margin-bottom: 20px;
@@ -158,20 +174,78 @@
   &__price_subtotal {
     color: hsl(0, 0%, 50%);
   }
+
   &__price-description {
   }
+
   &__price-value {
     margin-left: auto;
   }
+
   &__price_discount {
     color: hsl(0, 0%, 50%);
   }
+
   &__price_total {
     font-size: 1.5rem;
     font-weight: 500;
   }
+
   &__checkout {
     @include button(100%, 30px);
     border-radius: 10px;
+  }
+
+  &__link {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+@include laptop {
+  .cart {
+    .box {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &__summary {
+      align-self: auto;
+      width: 100%;
+    }
+
+    &__subheader {
+      display: none;
+    }
+
+    &__product-container {
+      align-items: center;
+    }
+
+    &__products {
+      width: 100%;
+    }
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    margin: 20px 0 0;
+
+    &__image {
+      max-width: 100%;
+    }
+  }
+}
+
+@include tablet {
+  .cart {
+    &__price_total {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
   }
 }

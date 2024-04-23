@@ -1,0 +1,39 @@
+<ng-container [ngSwitch]="currentStep$ | async">
+
+  <app-catalog-dropdown
+    (changeStep)="stepChange('productNames', $event)"
+    (subFormInitialized)="subFormInitialized('productNames', $event)"
+    *ngSwitchCase="'productNames'"
+    [initialForm]="orderForm.get('productNames')?.value"
+  >
+  </app-catalog-dropdown>
+
+  <app-address
+    (changeStep)="stepChange('location', $event)"
+    (subFormInitialized)="subFormInitialized('location', $event)"
+    *ngSwitchCase="'location'"
+    [initialForm]="orderForm.get('location')?.value">
+  </app-address>
+
+  <app-payment-method
+    (changeStep)="stepChange('paymentMethod', $event)"
+    (subFormInitialized)="subFormInitialized('paymentMethod', $event)"
+    *ngSwitchCase="'paymentMethod'"
+    [initialForm]="orderForm.get('paymentMethod')?.value">
+    >
+  </app-payment-method>
+
+  <app-delivery-date
+    (changeStep)="stepChange('deliveryDate', $event)"
+    (subFormInitialized)="subFormInitialized('deliveryDate', $event)"
+    *ngSwitchCase="'deliveryDate'"
+    [initialForm]="orderForm.get('deliveryDate')?.value">
+  </app-delivery-date>
+
+  <app-checkout
+    (changeStep)="stepChange('checkout', $event)"
+    *ngSwitchCase="'checkout'"
+    [orderForm]="orderForm.value">
+  </app-checkout>
+
+</ng-container>
