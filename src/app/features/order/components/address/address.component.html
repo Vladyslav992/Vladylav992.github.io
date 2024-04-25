@@ -7,33 +7,49 @@
 
   <form [formGroup]="addressForm" action="" class="address__form">
     <div class="box" formGroupName="location">
-      <mat-form-field appearance="outline"
-      >
-        <mat-label>Country</mat-label>
-        <input
-          formControlName="country"
-          matInput
-          placeholder="Country"
-          required
-        />
-      </mat-form-field>
 
-      <mat-form-field appearance="outline"
-      >
-        <mat-label>City</mat-label>
-        <input formControlName="city" matInput placeholder="City" required/>
-      </mat-form-field>
+      <div class="input-container">
+        <div *ngIf="isCountryInvalid()" class="warning">
+          *Such a country doesn't exists
+        </div>
+        <mat-form-field appearance="outline"
+        >
+          <mat-label>Country</mat-label>
+          <input
+            formControlName="country"
+            matInput
+            placeholder="Country"
+            required
+          />
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline"
-      >
-        <mat-label>Address</mat-label>
-        <input
-          formControlName="address"
-          matInput
-          placeholder="Address"
-          required
-        />
-      </mat-form-field>
+      <div class="input-container">
+        <div *ngIf="isCityInvalid()" class="warning">
+          *City field must contain at least one word
+        </div>
+        <mat-form-field appearance="outline"
+        >
+          <mat-label>City</mat-label>
+          <input formControlName="city" matInput placeholder="City" required/>
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <div *ngIf="isAddressInvalid()" class="warning">
+          *Address field must contain at least one word
+        </div>
+        <mat-form-field appearance="outline"
+        >
+          <mat-label>Address</mat-label>
+          <input
+            formControlName="address"
+            matInput
+            placeholder="Address"
+            required
+          />
+        </mat-form-field>
+      </div>
     </div>
   </form>
 

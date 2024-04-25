@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CartService} from "@app/core/services/cart.service";
 
 @Component({
@@ -25,15 +25,23 @@ export class CatalogDropdownComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.productNamesForm = this.fb.group({productNames: [],})
+    this.productNamesForm = this.fb.group({productNames: ['', [Validators.required]],})
 
     if (this.initialForm) {
       this.productNamesForm.get('productNames')?.setValue(this.initialForm);
     }
   }
 
+  isCatalogInvalid(): boolean {
+    const controlProducts = this.productNamesForm.get('productNames');
+    return controlProducts ? controlProducts.invalid &&
+      (controlProducts.dirty || controlProducts.touched) : false;
+  }
+
   doStepChange(direction: 'next') {
-    this.changeStep.emit(direction);
+    if (this.productNamesForm.valid) {
+      this.changeStep.emit(direction);
+    }
   }
 
   ngOnDestroy() {

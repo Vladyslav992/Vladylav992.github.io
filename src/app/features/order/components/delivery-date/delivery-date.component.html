@@ -5,6 +5,8 @@
   </div>
   <div class="box">
     <form [formGroup]="deliveryDateForm" action="">
+      <div *ngIf="showWarn" class="warning">*You need to choose date
+      </div>
       <div class="delivery__form" formGroupName="deliveryDate">
         <div class="delivery__date">
           <label class="delivery__label" for="today">Today</label>

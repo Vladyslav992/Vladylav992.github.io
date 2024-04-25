@@ -6,6 +6,8 @@
   </div>
   <div class="box">
     <form [formGroup]="paymentMethodForm" action="" class="payment__form">
+      <div *ngIf="showWarn" class="warning">*You need to choose payment method
+      </div>
       <div class="payment__methods">
         <div class="payment__method-container">
           <h2 class="payment__heading">Cash</h2>

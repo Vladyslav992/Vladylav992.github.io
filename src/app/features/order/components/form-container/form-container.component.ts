@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
-type Step = 'productNames' | 'location' | 'paymentMethod' | 'deliveryDate' | 'checkout';
+type Step = 'productNames' | 'location' | 'paymentMethod' | 'deliveryDate' | 'checkout' | 'success';
 
 @Component({
   selector: 'app-form-container',
@@ -21,7 +21,8 @@ export class FormContainerComponent implements OnInit {
     location: {next: 'paymentMethod', prev: 'productNames'},
     paymentMethod: {next: 'deliveryDate', prev: 'location'},
     deliveryDate: {next: 'checkout', prev: 'paymentMethod'},
-    checkout: {prev: 'deliveryDate'}
+    checkout: {next: 'success', prev: 'deliveryDate'},
+    success: {next: 'productNames', prev: 'checkout'}
   };
 
   constructor(private fb: FormBuilder) {

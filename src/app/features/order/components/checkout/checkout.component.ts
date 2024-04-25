@@ -52,7 +52,7 @@ export class CheckoutComponent {
       return this.orderForm.paymentMethod;
     }
   }
-  
+
   get deliveryDate(): any {
     if (!this.orderForm.deliveryDate) {
       return 'You have not selected delivery date';
@@ -63,7 +63,7 @@ export class CheckoutComponent {
     }
   }
 
-  doStepChange(direction: 'prev') {
+  doStepChange(direction: 'next' | 'prev') {
     this.changeStep.emit(direction);
   }
 

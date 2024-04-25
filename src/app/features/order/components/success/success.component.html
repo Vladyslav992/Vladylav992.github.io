@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="box">
+
+    <h1 class="heading">Thank for ordering</h1>
+    <div class="success-checkmark"></div>
+    <div class="buttons-container">
+      <button [routerLink]="'/home'" class="button">Home</button>
+      <button (click)="resetOrder();
+      doStepChange('next')" class="button">Create New Order
+      </button>
+    </div>
+  </div>
+</div>

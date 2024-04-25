@@ -12,8 +12,10 @@ import {MatInputModule} from '@angular/material/input';
 import {PaymentMethodComponent} from './components/payment-method/payment-method.component';
 import {DeliveryDateComponent} from './components/delivery-date/delivery-date.component';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
-import { CheckoutComponent } from './components/checkout/checkout.component';
-import { FormContainerComponent } from './components/form-container/form-container.component';
+import {CheckoutComponent} from './components/checkout/checkout.component';
+import {FormContainerComponent} from './components/form-container/form-container.component';
+import {HttpClientModule} from "@angular/common/http";
+import { SuccessComponent } from './components/success/success.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { FormContainerComponent } from './components/form-container/form-contain
     DeliveryDateComponent,
     CheckoutComponent,
     FormContainerComponent,
+    SuccessComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +41,7 @@ import { FormContainerComponent } from './components/form-container/form-contain
     MatDatepickerToggle,
     MatDatepicker,
     MatDatepickerInput,
+    HttpClientModule,
   ],
 })
 export class OrderModule {

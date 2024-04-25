@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-contacts-form',
@@ -11,7 +12,10 @@ export class ContactsFormComponent {
   email = '';
   description = '';
 
-  onSubmit() {
-    console.log(this.name, this.surname, this.email, this.description);
+  onSubmit(form: NgForm) {
+    if (form.valid) {
+      console.log(`Name: ${this.name}\nSurname: ${this.surname}\nEmail:
+    ${this.email}\nDescription: ${this.description}`);
+    }
   }
 }

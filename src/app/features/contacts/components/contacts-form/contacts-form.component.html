@@ -13,29 +13,51 @@
         </p>
       </div>
 
-      <form action="" class="form__container" method="get">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)" action="" class="form__container" method="get">
         <div class="form__input">
           <label class="form__label" for="name">Name</label>
-          <input [(ngModel)]="name" class="form__field" id="name" name="name" placeholder="Enter your name" type="text">
+          <input #userName="ngModel" [(ngModel)]="name" class="form__field" id="name" name="name"
+                 placeholder="Enter your name" required
+                 type="text">
+          <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="warning">
+            *You need to enter your name
+          </div>
         </div>
         <div class="form__input">
           <label class="form__label" for="surname">Surname</label>
-          <input [(ngModel)]="surname" class="form__field" id="surname" name="name" placeholder="Enter your name"
+          <input #userSurname="ngModel" [(ngModel)]="surname" class="form__field"
+                 id="surname" name="surname"
+                 placeholder="Enter your name"
+                 required
                  type="text">
+          <div *ngIf="userSurname.invalid  && (userSurname.dirty || userSurname.touched)"
+               class="warning">
+            *You need to enter your surname
+          </div>
         </div>
         <div class="form__input">
           <label class="form__label" for="email">Email address</label>
-          <input [(ngModel)]="email" class="form__field" id="email" name="email" placeholder="Enter your email"
+          <input #userEmail="ngModel" [(ngModel)]="email" class="form__field"
+                 id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                 placeholder="Enter your email" required
                  type="email">
+          <div *ngIf="userEmail.invalid  && (userEmail.dirty || userEmail.touched)" class="warning">
+            *This Email is invalid
+          </div>
         </div>
         <div class="form__input">
           <label class="form__label" for="description">Message</label>
-          <textarea [(ngModel)]="description" class="form__field" cols="30" id="description"
-                    name="descrition" placeholder="Enter your message here"
+          <textarea #userText="ngModel" [(ngModel)]="description" class="form__field"
+                    cols="30" id="description"
+                    name="descrition"
+                    placeholder="Enter your message here" required
                     rows="5" type="text"></textarea>
+          <div *ngIf="userText.invalid && (userText.dirty || userText.touched)" class="warning">
+            *You need to write something
+          </div>
         </div>
 
-        <button (click)="onSubmit()" class="form__submit" type="submit">Submit</button>
+        <button class="form__submit" type="submit">Submit</button>
       </form>
 
     </div>

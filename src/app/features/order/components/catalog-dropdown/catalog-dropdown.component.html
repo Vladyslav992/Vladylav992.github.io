@@ -4,6 +4,9 @@
   </div>
   <div class="box">
     <form [formGroup]="productNamesForm" action="">
+      <div *ngIf="isCatalogInvalid()" class="warning">*You need to choose
+        at least one item
+      </div>
       <mat-form-field [style]="{ width: '500px' }" appearance="outline">
         <mat-label>Catalog</mat-label>
         <mat-select formControlName="productNames" multiple="true">

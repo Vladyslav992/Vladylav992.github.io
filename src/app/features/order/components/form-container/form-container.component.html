@@ -36,4 +36,8 @@
     [orderForm]="orderForm.value">
   </app-checkout>
 
+  <app-success (changeStep)="stepChange('success', $event)"
+               (orderReset)="orderForm.reset()"
+               *ngSwitchCase="'success'"></app-success>
+
 </ng-container>

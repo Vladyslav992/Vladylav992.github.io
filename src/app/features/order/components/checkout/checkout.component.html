@@ -39,8 +39,8 @@
       >Previous</a
       >
       <button
-        (click)="onSubmit()"
-        [routerLink]="'/home'"
+        (click)="onSubmit();
+         doStepChange('next')"
         class="button"
         type="submit"
       >Submit
