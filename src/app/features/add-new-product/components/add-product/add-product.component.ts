@@ -40,23 +40,25 @@ export class AddProductComponent implements OnInit {
       (control.dirty || control.touched) : false;
   }
 
-  transformStringToArray(controlName: string): void {
-    const controlValue = this.newProductForm.get(controlName)?.value;
-    const controlValueArray = controlValue.split(' ');
-    this.newProductForm.get(controlName)?.setValue(controlValueArray)
-  }
-
   setRandomId(): void {
     this.newProductForm.get('id')?.setValue(Math.floor(Math.random() * 1000000));
   }
 
   onSubmit(): void {
     if (this.newProductForm.valid) {
+      this.transformStringToArray('color');
+      this.transformStringToArray('size');
       const product: Product = this.newProductForm.value;
       this.products.push(product);
       console.log(this.products)
     } else {
       console.log('Form is invalid')
     }
+  }
+
+  private transformStringToArray(controlName: string): void {
+    const controlValue = this.newProductForm.get(controlName)?.value;
+    const controlValueArray = controlValue.split(' ');
+    this.newProductForm.get(controlName)?.setValue(controlValueArray)
   }
 }
