@@ -101,6 +101,28 @@ $colors: (
   }
 }
 
+.add-product {
+  border: 2px dashed $clr-secondary;
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+  min-height: 30vh;
+  width: 100%;
+
+  &:hover {
+    box-shadow: 2px 2px 3px black;
+  }
+
+  &::before {
+    content: url("../../../../../assets/img/plus-pink.png");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.15);
+  }
+}
+
 @include laptop {
   .products {
     &__container {

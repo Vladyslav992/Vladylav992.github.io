@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="heading">
+    <div class="container">
+      <h1 class="heading__text">Create a new product</h1>
+    </div>
+  </div>
+
+  <form (ngSubmit)="onSubmit()"
+        [formGroup]="newProductForm"
+        action=""
+        class="form">
+
+    <div class="form__details">
+      <h2 class="form__heading">Basic Information</h2>
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('name')" class="warning">
+          *You need to enter name
+        </div>
+        <label class="form__label" for="name">Bike Name</label>
+        <input class="form__field" formControlName="name" id="name" placeholder="Argon 18" type="text">
+      </div>
+
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('description')" class="warning">
+          *You need to write at least 10 characters
+        </div>
+        <label class="form__label" for="description">Description</label>
+        <textarea class="form__field form__field_textarea"
+                  formControlName="description" id="description"
+                  placeholder="Enter the description of your product"
+                  rows="5" type="text"></textarea>
+      </div>
+
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('imgUrl')" class="warning">
+          *You need to enter URL
+        </div>
+        <label class="form__label" for="img">Image URL</label>
+        <input class="form__field" formControlName="imgUrl" id="img"
+               placeholder="https://cyclingmagazine.ca/wp-content/uploads/2018/03/etap.shadowpsd_2048x.png" type="text">
+      </div>
+
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('shop')" class="warning">
+          *You need to enter shop name
+        </div>
+        <label class="form__label" for="shop">Shop Name</label>
+        <input class="form__field"
+               formControlName="shop" id="shop" placeholder="Canada Bike" type="text">
+      </div>
+
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('color')" class="warning">
+          *You need to enter at least one color
+        </div>
+        <label class="form__label" for="color">Color</label>
+        <input (change)="transformStringToArray('color')" class="form__field"
+               formControlName="color" id="color" placeholder="black green blue" type="text">
+      </div>
+
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('size')" class="warning">
+          *You need to enter at least one size
+        </div>
+        <label class="form__label" for="size">Size</label>
+        <input (change)="transformStringToArray('size')" class="form__field" formControlName="size"
+               id="size" placeholder="S L XL" type="text">
+      </div>
+    </div>
+
+
+    <div class="form__price">
+      <h2 class="form__heading">Price Information</h2>
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('price') " class="warning">
+          *Price must only contain numbers
+        </div>
+        <label class="form__label" for="price">Price</label>
+        <input class="form__field" formControlName="price"
+               id="price" placeholder="900" type="text">
+      </div>
+
+      <div class="form__input">
+        <div *ngIf="isControlInvalid('discount') " class="warning">
+          *Discount can only be from 0 to 1
+        </div>
+        <label class="form__label" for="discount">Discount</label>
+        <input class="form__field" formControlName="discount" id="discount"
+               placeholder="0-1" type="text">
+      </div>
+
+      <div class="form__input">
+        <label class="form__label" for="discountUntil">Discount Until</label>
+        <input [min]="todayDate | date : 'yyyy-MM-dd'" class="form__field"
+               formControlName="discountUntil" id="discountUntil" type="date">
+      </div>
+
+
+      <div class="form__input form__input_radio ">
+
+        <div class="radio-container">
+          <label class="form__label" for="free-shipping">Free shipping</label>
+          <input class="form__field form__field_radio" formControlName="shipping"
+                 id="free-shipping" type="radio" value="Free shpping">
+        </div>
+
+        <div class="radio-container">
+          <label class="form__label" for="paid-shipping">Paid shipping</label>
+          <input [value]="null" class="form__field form__field_radio"
+                 formControlName="shipping" id="paid-shipping" type="radio">
+        </div>
+
+      </div>
+    </div>
+
+    <app-image-preview [imgUrl]="newProductForm.get('imgUrl')?.value"></app-image-preview>
+
+    <button (click)="setRandomId()" class="submit-button" type="submit">Submit</button>
+  </form>
+</div>

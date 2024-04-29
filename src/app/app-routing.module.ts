@@ -1,10 +1,10 @@
-import { Component, NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
-import { HomeComponent } from './features/home/components/home/home.component';
+import {HomeComponent} from './features/home/components/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {path: '', component: HomeComponent},
   {
     path: 'home',
     component: HomeComponent,
@@ -43,6 +43,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/order/order.module').then((m) => m.OrderModule),
   },
+  {
+    path: 'add-new-product',
+    loadChildren: () =>
+      import('./features/add-new-product/add-new-product.module')
+        .then((m) => m.AddNewProductModule),
+  }
 ];
 
 @NgModule({
@@ -55,4 +61,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
