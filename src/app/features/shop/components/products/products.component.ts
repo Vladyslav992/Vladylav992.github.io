@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {Product} from '../../../../shared/interfaces/products.interface';
-import {ProductsService} from '../../../../core/services/products/products.service';
+import {ProductsFirebaseService} from "@app/core/services/products-firebase.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -12,7 +12,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   productsList: Product[];
   subscription: Subscription;
 
-  constructor(private productService: ProductsService) {
+  constructor(private changeDetector: ChangeDetectorRef,
+              private productsFirebaseService: ProductsFirebaseService) {
   }
 
   priceWithDiscount(product: Product) {
@@ -20,11 +21,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.productService
-      .getProducts()
-      .subscribe((products: Product[]) => {
-        this.productsList = products;
-      });
+    this.productsFirebaseService.addProductsToFirebase();
+
+    this.subscription = this.productsFirebaseService.getProductsFromFirebase()
+      .subscribe((productsFromFirebase) => {
+        this.productsList = productsFromFirebase;
+        this.changeDetector.detectChanges();
+      })
   }
 
   ngOnDestroy(): void {

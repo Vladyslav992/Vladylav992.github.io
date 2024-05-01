@@ -1,9 +1,10 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ProductsService} from '@app/core/services/products/products.service';
 import {Product} from '@app/shared/interfaces/products.interface';
 import {CartService} from '@app/core/services/cart.service';
 import {ProductInCart} from '@app/shared/interfaces/productInCart.interface';
+import {ProductsFirebaseService} from "@app/core/services/products-firebase.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-product-details',
@@ -11,18 +12,20 @@ import {ProductInCart} from '@app/shared/interfaces/productInCart.interface';
   styleUrl: './product-details.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
   product: Product | undefined;
   descriptionHidden: boolean = true;
   linkText: string = 'Read more';
   color: string = '';
   size: string = '';
   quantity: number = 1;
+  subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private productsFirebaseService: ProductsFirebaseService,
+    private changeDetector: ChangeDetectorRef,
   ) {
   }
 
@@ -47,7 +50,11 @@ export class ProductDetailsComponent implements OnInit {
       this.route.snapshot.paramMap.get('productId')
     );
 
-    this.product = this.productService.getProductById(productIdFromRoute);
+    this.subscription = this.productsFirebaseService.getProductByIdFromFirebase
+    (productIdFromRoute).subscribe((productFromFirebase) => {
+      this.product = productFromFirebase;
+      this.changeDetector.detectChanges();
+    })
   }
 
   toggleDescriptionVisibility() {
@@ -63,6 +70,10 @@ export class ProductDetailsComponent implements OnInit {
     const productToCart: ProductInCart = this.createProductInCart();
     this.updateCart(productToCart);
     this.cartService.saveToLocalStorage();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   private createProductInCart(): ProductInCart {

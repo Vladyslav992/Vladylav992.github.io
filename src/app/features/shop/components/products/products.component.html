@@ -1,7 +1,10 @@
 <div class="products">
   <div class="container">
     <div class="box">
-      <div class="products__container">
+      <ng-template #loading>
+        <div class="lds-dual-ring"></div>
+      </ng-template>
+      <div *ngIf="productsList; else loading" class="products__container">
         <ng-container *ngFor="let item of productsList">
           <div
             [class]="getDiscountClass(item.discount)"

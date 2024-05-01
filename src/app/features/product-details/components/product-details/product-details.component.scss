@@ -74,9 +74,11 @@
     align-items: center;
     gap: 5px;
   }
+
   &__star {
     font-size: 1.25rem;
   }
+
   &__review-link {
     @extend %link;
     margin-left: auto;
@@ -90,6 +92,7 @@
     &-cart {
       @include button(50%, 30px);
     }
+
     &-wishlist {
       @include button(50%, 30px);
       background-color: transparent;
@@ -135,10 +138,41 @@
   &__rating {
     display: flex;
   }
+
   &__star_active {
     color: $clr-secondary;
   }
 }
+
+
+.lds-dual-ring {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6.4px solid $clr-secondary;
+  border-color: $clr-secondary transparent $clr-secondary transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 @include laptop {
   .product {
@@ -159,6 +193,7 @@
       width: fit-content;
       margin: 0 auto;
     }
+
     &__button {
       width: fit-content;
       margin: 0 auto;
@@ -172,6 +207,7 @@
       &-cart {
         width: 100%;
       }
+
       &-wishlist {
         width: 100%;
       }

@@ -1,5 +1,8 @@
 <div class="container">
-  <div *ngIf="product" class="product">
+  <ng-template #loading>
+    <div class="lds-dual-ring"></div>
+  </ng-template>
+  <div *ngIf="product; else loading" class="product">
     <div class="box">
       <img alt="bike" class="product__img" src="{{ product.imgUrl }}"/>
 
