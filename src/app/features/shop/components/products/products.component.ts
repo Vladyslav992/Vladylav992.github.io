@@ -21,8 +21,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.productsFirebaseService.addProductsToFirebase();
-
     this.subscription = this.productsFirebaseService.getProductsFromFirebase()
       .subscribe((productsFromFirebase) => {
         this.productsList = productsFromFirebase;

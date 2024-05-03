@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Product} from "@app/shared/interfaces/products.interface";
+import {ProductsFirebaseService} from "@app/core/services/products-firebase.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-product',
@@ -9,10 +11,11 @@ import {Product} from "@app/shared/interfaces/products.interface";
 })
 export class AddProductComponent implements OnInit {
   newProductForm: FormGroup;
-  products: Product[] = [];
   todayDate = new Date();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private productsFirebaseService: ProductsFirebaseService) {
   }
 
   ngOnInit(): void {
@@ -49,8 +52,8 @@ export class AddProductComponent implements OnInit {
       this.transformStringToArray('color');
       this.transformStringToArray('size');
       const product: Product = this.newProductForm.value;
-      this.products.push(product);
-      console.log(this.products)
+      this.productsFirebaseService.addProductToFirebase(product);
+      this.router.navigate(['/shop']);
     } else {
       console.log('Form is invalid')
     }

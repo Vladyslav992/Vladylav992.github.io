@@ -4,7 +4,7 @@ import {collection, doc, setDoc} from "firebase/firestore";
 import {db} from "../../../firebase.config";
 import {collectionData, docData} from 'rxfire/firestore';
 import {Product} from "@app/shared/interfaces/products.interface";
-import {Observable, take} from "rxjs";
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -14,15 +14,9 @@ export class ProductsFirebaseService {
   constructor(private productService: ProductsService) {
   }
 
-  addProductsToFirebase() {
-    this.productService.getProducts().pipe(take(1))
-      .subscribe((products) => {
-        products.forEach((product) => {
-          const productRef =
-            doc(db, 'bikes', product.id.toString());
-          setDoc(productRef, product, {merge: true});
-        })
-      })
+  addProductToFirebase(product: Product) {
+    const productRef = doc(db, 'bikes', product.id.toString());
+    setDoc(productRef, product, {merge: true});
   }
 
   getProductsFromFirebase(): Observable<Product[]> {
