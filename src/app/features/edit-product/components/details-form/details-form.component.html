@@ -1,0 +1,59 @@
+<form [formGroup]="productDetailsGroup" action="">
+  <div class="form__details">
+    <h2 class="form__heading">Basic Information</h2>
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('name')" class="warning">
+        *You need to enter name
+      </div>
+      <label class="form__label" for="name">Bike Name</label>
+      <input class="form__field" formControlName="name" id="name" placeholder="Argon 18" type="text">
+    </div>
+
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('description')" class="warning">
+        *You need to write at least 10 characters
+      </div>
+      <label class="form__label" for="description">Description</label>
+      <textarea class="form__field form__field_textarea"
+                formControlName="description" id="description"
+                placeholder="Enter the description of your product"
+                rows="5" type="text"></textarea>
+    </div>
+
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('imgUrl')" class="warning">
+        *You need to enter URL
+      </div>
+      <label class="form__label" for="img">Image URL</label>
+      <input class="form__field" formControlName="imgUrl" id="img"
+             placeholder="https://cyclingmagazine.ca/wp-content/uploads/2018/03/etap.shadowpsd_2048x.png" type="text">
+    </div>
+
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('shop')" class="warning">
+        *You need to enter shop name
+      </div>
+      <label class="form__label" for="shop">Shop Name</label>
+      <input class="form__field"
+             formControlName="shop" id="shop" placeholder="Canada Bike" type="text">
+    </div>
+
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('color')" class="warning">
+        *You need to enter at least one color
+      </div>
+      <label class="form__label" for="color">Color</label>
+      <input (change)="transformStringToArray('color')" class="form__field"
+             formControlName="color" id="color" placeholder="black green blue" type="text">
+    </div>
+
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('size')" class="warning">
+        *You need to enter at least one size
+      </div>
+      <label class="form__label" for="size">Size</label>
+      <input (change)="transformStringToArray('size')" class="form__field" formControlName="size"
+             id="size" placeholder="S L XL" type="text">
+    </div>
+  </div>
+</form>

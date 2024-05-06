@@ -52,7 +52,7 @@ export class AddProductComponent implements OnInit {
       this.transformStringToArray('color');
       this.transformStringToArray('size');
       const product: Product = this.newProductForm.value;
-      this.productsFirebaseService.addProductToFirebase(product);
+      this.productsFirebaseService.upsertProductToFirebase(product);
       this.router.navigate(['/shop']);
     } else {
       console.log('Form is invalid')

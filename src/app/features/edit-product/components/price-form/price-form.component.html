@@ -1,0 +1,44 @@
+<form [formGroup]="productPriceGroup" action="">
+  <div class="form__price">
+    <h2 class="form__heading">Price Information</h2>
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('price') " class="warning">
+        *Price must only contain numbers
+      </div>
+      <label class="form__label" for="price">Price</label>
+      <input class="form__field" formControlName="price"
+             id="price" placeholder="900" type="number">
+    </div>
+
+    <div class="form__input">
+      <div *ngIf="isControlInvalid('discount') " class="warning">
+        *Discount can only be from 0 to 1
+      </div>
+      <label class="form__label" for="discount">Discount</label>
+      <input class="form__field" formControlName="discount" id="discount"
+             placeholder="0-1" type="number">
+    </div>
+
+    <div class="form__input">
+      <label class="form__label" for="discountUntil">Discount Until</label>
+      <input [min]="todayDate | date : 'yyyy-MM-dd'" class="form__field"
+             formControlName="discountUntil" id="discountUntil" type="date">
+    </div>
+
+
+    <div class="form__input form__input_radio ">
+
+      <div class="radio-container">
+        <label class="form__label" for="free-shipping">Free shipping</label>
+        <input class="form__field form__field_radio" formControlName="shipping"
+               id="free-shipping" type="radio" value="Free shipping">
+      </div>
+
+      <div class="radio-container">
+        <label class="form__label" for="paid-shipping">Paid shipping</label>
+        <input class="form__field form__field_radio"
+               formControlName="shipping" id="paid-shipping" type="radio" value="Paid shipping">
+      </div>
+    </div>
+  </div>
+</form>

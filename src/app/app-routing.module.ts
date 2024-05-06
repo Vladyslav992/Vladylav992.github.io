@@ -48,6 +48,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/add-new-product/add-new-product.module')
         .then((m) => m.AddNewProductModule),
+  },
+  {
+    path: 'edit-product/:productId',
+    loadChildren: () =>
+      import('./features/edit-product/edit-product.module')
+        .then((m) => m.EditProductModule),
   }
 ];
 

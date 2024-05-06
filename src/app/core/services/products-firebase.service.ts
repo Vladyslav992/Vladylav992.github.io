@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ProductsService} from "@app/core/services/products/products.service";
-import {collection, doc, setDoc} from "firebase/firestore";
+import {collection, deleteDoc, doc, setDoc} from "firebase/firestore";
 import {db} from "../../../firebase.config";
 import {collectionData, docData} from 'rxfire/firestore';
 import {Product} from "@app/shared/interfaces/products.interface";
@@ -14,7 +14,7 @@ export class ProductsFirebaseService {
   constructor(private productService: ProductsService) {
   }
 
-  addProductToFirebase(product: Product) {
+  upsertProductToFirebase(product: Product) {
     const productRef = doc(db, 'bikes', product.id.toString());
     setDoc(productRef, product, {merge: true});
   }
@@ -27,6 +27,11 @@ export class ProductsFirebaseService {
   getProductByIdFromFirebase(id: number): Observable<Product> {
     const productRef = doc(db, 'bikes', id.toString());
     return docData(productRef) as Observable<Product>;
+  }
+
+  deleteProductFromFirebase(product: Product) {
+    const productRef = doc(db, 'bikes', product.id.toString())
+    return deleteDoc(productRef);
   }
 
 }

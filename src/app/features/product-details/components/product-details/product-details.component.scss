@@ -97,6 +97,10 @@
       @include button(50%, 30px);
       background-color: transparent;
     }
+
+    &-edit {
+      @include button(50%, 30px);
+    }
   }
 }
 

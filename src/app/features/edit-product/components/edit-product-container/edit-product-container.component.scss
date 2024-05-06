@@ -1,0 +1,70 @@
+@import "../../../../../assets/styles/index";
+
+.heading {
+  @extend %main-heading;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1.75fr 1.25fr;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 20px;
+  padding: 20px 0;
+
+  &__heading {
+    font-size: 1.25rem;
+  }
+
+  &__details {
+    grid-row: span 2;
+  }
+
+}
+
+app-image-preview {
+  grid-column-start: 2;
+}
+
+.button {
+  display: flex;
+  gap: 10px;
+  grid-column: span 2;
+  width: fit-content;
+  margin: 0 auto;
+
+  &-submit {
+    @include button(210px, 30px);
+    background: transparent;
+    border-color: black;
+    color: black;
+  }
+
+  &-delete {
+    @include button(210px, 30px);
+    background: transparent;
+    border-color: red;
+    color: red;
+  }
+}
+
+
+@include tablet {
+  .form {
+    grid-template-rows: auto;
+
+    &__details {
+      grid-column: span 2;
+    }
+
+    &__price {
+      grid-column: span 2;
+    }
+  }
+
+  app-image-preview {
+    grid-column-start: 1;
+    grid-column: span 2;
+  }
+}
+
+

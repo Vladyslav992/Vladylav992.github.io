@@ -1,31 +1,6 @@
 @import "../../../../../assets/styles/index";
 
-.heading {
-  @extend %main-heading;
-}
-
 .form {
-  display: grid;
-  grid-template-columns: 1.75fr 1.25fr;
-  grid-template-rows: repeat(2, auto);
-  grid-gap: 20px;
-  padding: 20px 0;
-
-  &__heading {
-    font-size: 1.25rem;
-  }
-
-  &__details {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px;
-    border-radius: 30px;
-    border: 1px solid hsl(0, 0%, 74%);
-    background-color: hsl(0, 0%, 95%);
-    grid-row: span 2;
-    height: fit-content;
-  }
 
   &__price {
     display: flex;
@@ -67,10 +42,6 @@
     }
   }
 
-  &__field.form__field_textarea {
-    height: auto;
-  }
-
   &__field.form__field_radio {
     appearance: none;
     width: 30px;
@@ -101,33 +72,3 @@
     flex-direction: column;
   }
 }
-
-app-image-preview {
-  grid-column-start: 2;
-}
-
-.submit-button {
-  @include button(210px, 30px);
-  grid-column: span 2;
-  margin: 0 auto;
-}
-
-@include tablet {
-  .form {
-    grid-template-rows: auto;
-
-    &__details {
-      grid-column: span 2;
-    }
-
-    &__price {
-      grid-column: span 2;
-    }
-  }
-
-  app-image-preview {
-    grid-column-start: 1;
-    grid-column: span 2;
-  }
-}
-

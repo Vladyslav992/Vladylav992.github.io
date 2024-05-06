@@ -12,6 +12,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AddProductComponent,
     ImagePreviewComponent
   ],
+  exports: [
+    ImagePreviewComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
