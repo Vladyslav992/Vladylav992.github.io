@@ -4,8 +4,8 @@ import {PriceFormComponent} from './components/price-form/price-form.component';
 import {EditProductContainerComponent} from './components/edit-product-container/edit-product-container.component';
 import {EditProductRoutingModule} from "@app/features/edit-product/edit-product-routing.module";
 import {DetailsFormComponent} from './components/details-form/details-form.component';
-import {AddNewProductModule} from "@app/features/add-new-product/add-new-product.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ImagePreviewComponent} from "@app/shared/components/image-preview/image-preview.component";
 
 
 @NgModule({
@@ -17,9 +17,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     EditProductRoutingModule,
-    AddNewProductModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImagePreviewComponent,
   ]
 })
 export class EditProductModule {

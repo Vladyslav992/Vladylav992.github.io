@@ -61,6 +61,10 @@ app-image-preview {
     }
   }
 
+  .button {
+    flex-direction: column;
+  }
+
   app-image-preview {
     grid-column-start: 1;
     grid-column: span 2;

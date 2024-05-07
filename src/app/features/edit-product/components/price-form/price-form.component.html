@@ -36,8 +36,8 @@
 
       <div class="radio-container">
         <label class="form__label" for="paid-shipping">Paid shipping</label>
-        <input class="form__field form__field_radio"
-               formControlName="shipping" id="paid-shipping" type="radio" value="Paid shipping">
+        <input [value]="null"
+               class="form__field form__field_radio" formControlName="shipping" id="paid-shipping" type="radio">
       </div>
     </div>
   </div>
