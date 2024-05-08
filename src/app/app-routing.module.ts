@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 import {HomeComponent} from './features/home/components/home/home.component';
+import {roleGuard} from "@app/core/guards/role.guard";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,8 @@ const routes: Routes = [
     path: 'shop',
     loadChildren: () =>
       import('./features/shop/shop.module').then((m) => m.ShopModule),
+    canActivate: [roleGuard],
+    data: {roles: []}
   },
   {
     path: 'products/:productId',
@@ -42,18 +45,29 @@ const routes: Routes = [
     path: 'order',
     loadChildren: () =>
       import('./features/order/order.module').then((m) => m.OrderModule),
+    canActivate: [roleGuard],
+    data: {roles: ['admin', 'customer', 'owner']}
   },
   {
     path: 'add-new-product',
     loadChildren: () =>
       import('./features/add-new-product/add-new-product.module')
         .then((m) => m.AddNewProductModule),
+    canActivate: [roleGuard],
+    data: {roles: ['admin']}
   },
   {
     path: 'edit-product/:productId',
     loadChildren: () =>
       import('./features/edit-product/edit-product.module')
         .then((m) => m.EditProductModule),
+    canActivate: [roleGuard],
+    data: {roles: ['admin', 'owner']}
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./features/login/login.module').then((m) => m.LoginModule),
   }
 ];
 

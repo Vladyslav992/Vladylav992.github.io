@@ -1,0 +1,14 @@
+@import "../../../../../assets/styles/index";
+
+.login {
+
+  .box {
+    flex-direction: column;
+    gap: 30px;
+    transform: translateY(30vh);
+  }
+
+  &__button {
+    @include button(150px, 30px);
+  }
+}

@@ -2,7 +2,7 @@
   <nav class="navination">
     <div class="container">
       <div class="box">
-        <img class="navigation__logo" src="/assets/img/logo.png" alt="logo" />
+        <img alt="logo" class="navigation__logo" src="/assets/img/logo.png"/>
         <ul class="navigation__list">
           <li class="navigation__list__item">
             <a [routerLink]="'/home'">Home</a>
@@ -16,10 +16,14 @@
           <li class="navigation__list__item">
             <a [routerLink]="'/contacts'">Contacts</a>
           </li>
+          <li class="navigation__list__item">
+            <a [routerLink]="'/login'" class="navigation__login"
+            >Login</a>
+          </li>
         </ul>
         <a [routerLink]="'/cart'"
-          ><img class="navigation__cart" src="/assets/img/cart.png" alt="cart"
-        /></a>
+        ><img alt="cart" class="navigation__cart" src="/assets/img/cart.png"
+        /> </a>
       </div>
     </div>
   </nav>
