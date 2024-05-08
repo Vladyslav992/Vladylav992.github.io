@@ -4,16 +4,15 @@
       <h1 class="heading__text">Edit/Delete product</h1>
     </div>
   </div>
-  <form (ngSubmit)="onSubmit()" action="" class="form">
-    @if (this.product) {
-      <app-details-form (formValuesChange)="onFormValuesChange($event)"
-                        [product]="this.product"
-                        class="form__details"></app-details-form>
-      <app-price-form (formValuesChange)="onFormValuesChange($event)"
-                      [product]="this.product" class="form__price"></app-price-form>
-      <app-image-preview
-        [imgUrl]="this.product.imgUrl"></app-image-preview>
-    }
+  <form (ngSubmit)="onSubmit()" *ngIf="this.product" action="" class="form">
+    <app-details-form (formValuesChange)="onFormValuesChange($event)"
+                      [product]="this.product"
+                      class="form__details"></app-details-form>
+    <app-price-form (formValuesChange)="onFormValuesChange($event)"
+                    [product]="this.product" class="form__price"></app-price-form>
+    <app-image-preview
+      [imgUrl]="this.product.imgUrl"></app-image-preview>
+
 
     <div class="button-container button">
       <button class="button-submit" type="submit">Submit</button>
