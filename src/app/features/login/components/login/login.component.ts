@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RoleService} from "@app/core/services/role.service";
+import {AuthenticationService} from "@app/core/services/authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -7,15 +7,13 @@ import {RoleService} from "@app/core/services/role.service";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  isAuthOpen: boolean = false;
 
-  constructor(private roleService: RoleService) {
+  constructor(
+    private authService: AuthenticationService) {
   }
 
-  setRole(role: string) {
-    this.roleService.setUserRole(role);
-  }
-
-  logout() {
-    this.roleService.logout();
+  logOut() {
+    this.authService.logOut();
   }
 }

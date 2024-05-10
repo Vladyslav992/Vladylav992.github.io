@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class RoleService {
   private userRoles: string[];
-  
+
   constructor() {
   }
 

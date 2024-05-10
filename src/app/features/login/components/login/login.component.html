@@ -1,10 +1,9 @@
 <div class="login">
   <div class="container">
     <div class="box">
-      <button (click)="setRole('customer')" class="login__button">Customer</button>
-      <button (click)="setRole('admin')" class="login__button">Admin</button>
-      <button (click)="setRole('owner')" class="login__button">Owner</button>
-      <button (click)="logout()" class="login__button">Log out</button>
+      <button (click)="isAuthOpen = true" class="login__button">Log in</button>
+      <button (click)="logOut()" class="login__button">Log out</button>
     </div>
+    <app-authentication-window [(isOpen)]="isAuthOpen"></app-authentication-window>
   </div>
 </div>

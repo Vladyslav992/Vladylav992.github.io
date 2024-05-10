@@ -1,0 +1,45 @@
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="authentication">
+  <div class="box">
+    <button (click)="toggleTab('logIn')"
+            [class.authentication__menu-button_active]="activeTab === 'logIn'"
+            class="authentication__menu-button ">Log In
+    </button>
+    <button (click)="toggleTab('singUp')"
+            [class.authentication__menu-button_active]="activeTab === 'singUp'"
+            class="authentication__menu-button">Sing Up
+    </button>
+    <button (click)="closeWindow()" class="authentication__menu-close">&#10006;</button>
+  </div>
+
+  <form [formGroup]="authForm" class="authentication__form">
+
+    <div class="authentication__input">
+      <label class="authentication__label" for="email">Email</label>
+      <input class="authentication__field" formControlName="email" id="email"
+             placeholder="Enter your email" type="text">
+    </div>
+
+    <div class="authentication__input">
+      <label class="authentication__label" for="password">Password</label>
+      <input class="authentication__field" formControlName="password" id="password"
+             placeholder="Enter your email" type="password">
+    </div>
+
+    <div class="button-container">
+      <button (click)="logInWithGoogle()"
+              class="authentication__button authentication__button_google"
+              type="button"><span class="icon"><i class="fa-brands fa-google"></i></span> Log In with Google
+      </button>
+
+      @if (activeTab === 'logIn') {
+        <button (click)="logIn()"
+                class="authentication__button" type="button">Log In
+        </button>
+      } @else if (activeTab === 'singUp') {
+        <button (click)="singUp()"
+                class="authentication__button" type="button">Sing Up
+        </button>
+      }
+    </div>
+  </form>
+</div>
