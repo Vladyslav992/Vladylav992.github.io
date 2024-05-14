@@ -1,29 +1,41 @@
 <header>
-  <nav class="navination">
+  <nav class="navigation">
     <div class="container">
       <div class="box">
         <img alt="logo" class="navigation__logo" src="/assets/img/logo.png"/>
-        <ul class="navigation__list">
-          <li class="navigation__list__item">
-            <a [routerLink]="'/home'">Home</a>
-          </li>
-          <li class="navigation__list__item">
-            <a [routerLink]="'/shop'">Shop</a>
-          </li>
-          <li class="navigation__list__item">
-            <a [routerLink]="'/about'">About</a>
-          </li>
-          <li class="navigation__list__item">
-            <a [routerLink]="'/contacts'">Contacts</a>
-          </li>
-          <li class="navigation__list__item">
-            <a [routerLink]="'/login'" class="navigation__login"
-            >Login</a>
-          </li>
+        <ul [class.navigation__list_opened]="isMenuOpen" class="navigation__list">
+          <a [routerLink]="'/home'" class="navigation__link">
+            <li class="navigation__list__item">
+              Home
+            </li>
+          </a>
+          <a [routerLink]="'/shop'" class="navigation__link">
+            <li class="navigation__list__item">
+              Shop
+            </li>
+          </a>
+          <a [routerLink]="'/about'" class="navigation__link">
+            <li class="navigation__list__item">
+              About
+            </li>
+          </a>
+          <a [routerLink]="'/contacts'" class="navigation__link">
+            <li class="navigation__list__item">
+              Contacts
+            </li>
+          </a>
+          <a [routerLink]="'/login'" class="navigation__link"
+          >
+            <li class="navigation__list__item">
+              Login
+            </li>
+          </a>
         </ul>
-        <a [routerLink]="'/cart'"
+        <a *ngIf="!isMenuOpen" [routerLink]="'/cart'" class="navigation__cart-link"
         ><img alt="cart" class="navigation__cart" src="/assets/img/cart.png"
         /> </a>
+        <i (click)="toggleMenu()" [ngClass]="isMenuOpen ? 'fa-xmark' : 'fa-bars'"
+           class="fa-solid"></i>
       </div>
     </div>
   </nav>

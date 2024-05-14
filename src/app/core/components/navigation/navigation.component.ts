@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import {Component,} from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -6,4 +6,9 @@ import { Component, } from '@angular/core';
   styleUrl: './navigation.component.scss',
 })
 export class NavigationComponent {
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }

@@ -1,46 +1,112 @@
 @import '../../../../assets/styles/index';
 
-.navination {
-    height: 15vh;
-    font-size: 1.25rem;
-    background-color: hsl(0, 0%, 100%);
+.navigation {
+  height: 15vh;
+  font-size: 1.25rem;
+  background-color: hsl(0, 0%, 100%);
 }
 
 .navigation {
 
-    .box {
-        gap: 20px;
+  .container {
+    height: 100%;
+  }
+
+  .box {
+    gap: 20px;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__logo {
+    max-height: 5vh;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 35px;
+    transform: translate(-10%);
+
+    a {
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $clr-secondary;
+      }
+    }
+  }
+
+  &__cart {
+    max-height: 4vh;
+  }
+
+  .fa-solid.fa-bars {
+    display: none;
+  }
+}
+
+@include tablet {
+  .navigation {
+    .fa-solid.fa-bars {
+      display: inline-block;
     }
 
-    &__logo {
-        max-height: 5vh;
-        margin-top: 5vh;
+    .fa-solid.fa-xmark {
+      position: fixed;
+      right: 5vw;
+      z-index: 10;
     }
 
     &__list {
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 35px;
-        margin-top: 5vh;
-        transform: translate(-10%);
+      position: fixed;
+      top: 0;
+      right: -1000px;
+    }
+
+    &__list_opened {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      right: -5vw;
+      z-index: 10;
+      width: 50vw;
+      height: 100vh;
+      padding: 60px 0;
+      border-radius: 30px;
+      border: 1px solid hsl(0, 0%, 74%);
+      background-color: hsl(0, 0%, 94%);
+      transition: right 0.3s;
+    }
+
+    &__link {
+      width: 100%;
+
     }
 
     &__list__item {
-        a {
-            color: black;
-            text-decoration: none;
-            transition: color 0.3s;
+      padding: 10px 0;
+      border-bottom: 1px solid hsl(0, 0%, 74%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
 
-            &:hover {
-                color: $clr-secondary;
-            }
-        }
+      &:hover {
+        background: hsl(0, 0%, 74%);;
+      }
     }
 
-    &__cart {
-        max-height: 4vh;
-        margin-top: 5vh;
+    &__cart-link {
+      justify-self: end;
+      margin-left: auto;
     }
+  }
 }
