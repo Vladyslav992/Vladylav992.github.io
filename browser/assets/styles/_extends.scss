@@ -1,0 +1,55 @@
+%align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%button {
+  background-color: $clr-secondary;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  @extend %align-center;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    background-color: $clr-primary;
+  }
+}
+
+%link {
+  text-decoration: underline;
+  color: $clr-secondary;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+%main-heading {
+  height: 100px;
+  @extend %align-center;
+
+  h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      width: 50%;
+      height: 30px;
+      border-bottom: 4px solid $clr-secondary;
+      position: absolute;
+      top: 13px;
+      left: 27%;
+    }
+  }
+}

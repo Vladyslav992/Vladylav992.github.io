@@ -1,0 +1,1 @@
+import{_ as o}from"./chunk-L4LCX3VT.js";var n=(()=>{let s=class s{constructor(){}setUserRole(t){this.userRoles=[],this.userRoles.push(t)}hasRole(t){return this.userRoles?this.userRoles.some(r=>t.includes(r)):!1}logout(){this.userRoles=[]}};s.\u0275fac=function(r){return new(r||s)},s.\u0275prov=o({token:s,factory:s.\u0275fac,providedIn:"root"});let e=s;return e})();export{n as a};
