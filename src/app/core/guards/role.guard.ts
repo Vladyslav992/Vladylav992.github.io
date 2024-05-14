@@ -11,7 +11,8 @@ export const roleGuard: CanActivateFn = (route, state) => {
   }
 
   if (!roleService.hasRole(expectedRole)) {
-    alert('You do not have permission to access this page');
+    alert(
+      ' To use all the functionality log in with admin@gamil.com email and password 987654321');
     return false;
   }
   return true;

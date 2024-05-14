@@ -1,15 +1,13 @@
 <footer class="footer">
   <div class="container">
     <div class="box">
-      <img class="footer_logo" src="/assets/img/logo.png" alt="logo" />
+      <img alt="logo" class="footer_logo" src="/assets/img/logo.png"/>
 
       <div class="footer__list-conainer">
         <h3 class="footer__heading">Products</h3>
         <ul class="footer__list">
-          <li class="footer__item"><a [routerLink]="'/shop'">Sneakers</a></li>
-          <li class="footer__item"><a [routerLink]="'/shop'">Loafers</a></li>
-          <li class="footer__item"><a [routerLink]="'/shop'">Boots</a></li>
-          <li class="footer__item"><a [routerLink]="'/shop'">Football</a></li>
+          <li class="footer__item"><a [routerLink]="'/products/1'">Bestseller</a></li>
+          <li class="footer__item"><a [routerLink]="'/shop'">All products</a></li>
         </ul>
       </div>
 
@@ -28,9 +26,6 @@
       <div class="footer__list-conainer">
         <h3 class="footer__heading">Advertisement</h3>
         <ul class="footer__list">
-          <li class="footer__item">
-            <a [routerLink]="'/home'" fragment="collections"> Bestsellers</a>
-          </li>
           <li class="footer__item">
             <a [routerLink]="'/home'" fragment="banner">Banner</a>
           </li>

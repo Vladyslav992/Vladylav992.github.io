@@ -15,7 +15,10 @@ export class RoleService {
   }
 
   hasRole(expectedRoles: string[]): boolean {
-    return this.userRoles.some(role => expectedRoles.includes(role));
+    if (this.userRoles) {
+      return this.userRoles.some(role => expectedRoles.includes(role));
+    }
+    return false;
   }
 
   logout() {

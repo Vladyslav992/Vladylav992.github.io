@@ -4,6 +4,10 @@
   min-height: 85vh;
   padding: 60px 0;
 
+  .box {
+    gap: 40px
+  }
+
   &__heading {
     max-width: 35vw;
     margin-bottom: 20px;
@@ -27,7 +31,7 @@
   }
 
   &__button {
-    @include button(100px, 30px);
+    @include button(50%, 30px);
   }
 
   &__button_tranperent {
@@ -35,7 +39,7 @@
   }
 
   &__img {
-    max-width: 500px;
+    max-width: 50%;
     animation: appearText 1.5s;
   }
 }

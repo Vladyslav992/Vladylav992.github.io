@@ -11,10 +11,10 @@
         </p>
 
         <div class="hero__button-container">
-          <div class="hero__button" [routerLink]="'/Shop'">Buy Now</div>
+          <div [routerLink]="'/shop'" class="hero__button">Buy Now</div>
           <div
+            [routerLink]="'/about'"
             class="hero__button hero__button_tranperent"
-            [routerLink]="'/About'"
           >
             Explore
           </div>
@@ -22,10 +22,10 @@
       </div>
 
       <img
+        alt="Bike"
         class="hero__img"
-        src="/assets/img/bike.png"
-        alt="Nike Air 270"
         loading="lazy"
+        src="/assets/img/bike.png"
       />
     </div>
   </div>

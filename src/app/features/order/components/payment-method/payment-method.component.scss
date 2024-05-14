@@ -79,3 +79,12 @@
   }
 }
 
+@include mobile {
+  .heading {
+    font-size: 1rem;
+    text-wrap: nowrap;
+  }
+  .payment__methods {
+    flex-direction: column;
+  }
+}

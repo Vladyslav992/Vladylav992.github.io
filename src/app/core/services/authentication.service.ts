@@ -10,6 +10,7 @@ import {
 import {db} from "../../../firebase.config";
 import {RoleService} from "@app/core/services/role.service";
 import {doc, getDoc, setDoc} from "firebase/firestore";
+import {Router} from "@angular/router";
 
 
 @Injectable({
@@ -18,7 +19,7 @@ import {doc, getDoc, setDoc} from "firebase/firestore";
 export class AuthenticationService {
   auth = getAuth();
 
-  constructor(private roleService: RoleService) {
+  constructor(private roleService: RoleService, private router: Router) {
   }
 
   async signUp(email: string, password: string) {
@@ -35,7 +36,8 @@ export class AuthenticationService {
       await setDoc(userRef, {role: 'customer'});
       const userDoc = await getDoc(userRef);
       const role = userDoc.data()?.['role'];
-      return this.roleService.setUserRole(role);
+      this.roleService.setUserRole(role);
+      this.router.navigate(['/shop']);
     }
   }
 
@@ -44,7 +46,8 @@ export class AuthenticationService {
     const userDoc = await getDoc(userRef);
     const role = userDoc.data()?.['role'];
     await signInWithEmailAndPassword(this.auth, email, password);
-    return this.roleService.setUserRole(role);
+    this.roleService.setUserRole(role);
+    this.router.navigate(['/shop']);
   }
 
   logOut() {
